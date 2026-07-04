@@ -1,0 +1,3205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastian Victor Dawber — Architecture & Environmental Design</title>
+<meta name="description" content="Part I Architectural & Environmental Designer. Sustainable design, environmental analysis, and data-driven architecture. Based in the UK.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.sebastianvictordawber.co/">
+<meta property="og:title" content="Sebastian Victor Dawber — Architecture & Environmental Design">
+<meta property="og:description" content="Part I Architectural & Environmental Designer. Sustainable design, environmental analysis, and data-driven architecture. Based in the UK.">
+<meta property="og:image" content="https://www.sebastianvictordawber.co/image/1_trees_cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sebastian Victor Dawber — Architecture & Environmental Design">
+<meta name="twitter:description" content="Part I Architectural & Environmental Designer. Sustainable design, environmental analysis, and data-driven architecture. Based in the UK.">
+<meta name="twitter:image" content="https://www.sebastianvictordawber.co/image/1_trees_cover.jpg">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://www.sebastianvictordawber.co/">
+
+<!-- JSON-LD Person Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sebastian Victor Dawber",
+  "url": "https://www.sebastianvictordawber.co/",
+  "jobTitle": "Part I Architectural & Environmental Designer",
+  "description": "Architectural and Environmental Designer specialising in sustainable design, environmental analysis, and data-driven architecture.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "GB"
+  },
+  "email": "svdawber@outlook.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE",
+    "https://www.instagram.com/YOUR_INSTAGRAM_HANDLE"
+  ],
+  "knowsAbout": ["Architecture", "Environmental Design", "Sustainable Design", "Python", "Grasshopper", "Rhinoceros 3D", "IES VE"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════
+   RESET
+═══════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#EAE4D8;
+  color:#0D1B2E;
+  font-family:'Syne',sans-serif;
+  font-weight:400;
+  overflow-x:hidden;
+  cursor:default;
+}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:'Syne',sans-serif;border:none;background:none}
+img{display:block;max-width:100%}
+
+/* ═══════════════════════════════
+   TOKENS
+═══════════════════════════════ */
+:root{
+  --bg:       #F5F0E6;
+  --bg-2:     #EDE6D5;
+  --bg-3:     #E0D7C4;
+  --ink:      #0D1B2E;
+  --ink-2:    #1E3250;
+  --ink-3:    #4A6880;
+  --ink-4:    #8AA4B8;
+  --white:    #F5F0E6;
+  --green:    #0D1B2E;
+  --green-2:  #1E3250;
+  --lime:     #E8DCC8;
+  --rule:     rgba(13,27,46,0.12);
+  --rule-2:   rgba(13,27,46,0.06);
+  --nav-h:    60px;
+  --ease:     cubic-bezier(0.25,0.46,0.45,0.94);
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ═══════════════════════════════
+   PLACEHOLDERS
+═══════════════════════════════ */
+.ph{
+  background:var(--bg-3);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.ph::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--rule) 1px,transparent 1px),
+    linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+.ph::after{
+  content:attr(data-label);
+  position:relative;z-index:1;
+  font-family:'DM Mono',monospace;font-size:0.55rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink-4);text-align:center;padding:0.5rem;
+}
+.ph-dk{background:#070F1C}
+.ph-dk::before{
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+.ph-dk::after{color:rgba(255,255,255,0.18)}
+
+/* ═══════════════════════════════
+   NAV
+═══════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;
+  background:rgba(245,240,230,0.96);
+  backdrop-filter:blur(14px);
+  border-bottom:0.5px solid var(--rule);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:0.85rem;
+  font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);
+}
+.nav-mark{
+  width:32px;height:32px;border:1.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-weight:500;
+  color:var(--ink);flex-shrink:0;
+  transition:background 0.2s,color 0.2s;
+}
+.nav-logo:hover .nav-mark{background:var(--ink);color:var(--white)}
+.nav-links{display:flex;align-items:center}
+.nl{
+  font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink-3);padding:0 1.2rem;height:var(--nav-h);
+  display:flex;align-items:center;gap:0.5rem;
+  border-right:0.5px solid var(--rule);
+  position:relative;transition:color 0.2s;
+}
+/* active bottom bar */
+.nl::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--green);transform:scaleX(0);
+  transition:transform 0.3s var(--ease);transform-origin:left;
+}
+.nl:hover{color:var(--ink)}
+.nl.on{color:var(--ink);font-weight:600}
+.nl.on::after{transform:scaleX(1)}
+/* active dot indicator */
+.nl-dot{
+  width:5px;height:5px;border-radius:50%;background:var(--lime);
+  flex-shrink:0;opacity:0;transition:opacity 0.2s;
+}
+.nl.on .nl-dot{opacity:1}
+.nav-cta{
+  font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--white);background:var(--ink);
+  padding:0 1.5rem;height:var(--nav-h);display:flex;align-items:center;
+  transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--green)}
+.nav-mob{display:none;flex-direction:column;gap:5px;padding:0.5rem;background:none;border:none}
+.nav-mob span{display:block;width:22px;height:1.5px;background:var(--ink)}
+
+/* ═══════════════════════════════
+   PAGE SYSTEM
+═══════════════════════════════ */
+.page{display:none;min-height:100vh;padding-top:var(--nav-h)}
+.page.on{display:block}
+
+/* ═══════════════════════════════
+   FADE ANIMATION
+═══════════════════════════════ */
+.fi{opacity:0;transform:translateY(16px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
+.fi.vis{opacity:1;transform:none}
+
+/* ═══════════════════════════════
+   SHARED COMPONENTS
+═══════════════════════════════ */
+.tag{
+  font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;
+  border:0.5px solid var(--ink-4);color:var(--ink-3);padding:0.18rem 0.5rem;
+}
+.tag-g{border-color:rgba(13,27,46,0.25);color:var(--green-2)}
+
+.btn-line{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:0.2rem;
+  transition:color 0.2s,border-color 0.2s;
+}
+.btn-line .arr{transition:transform 0.25s var(--ease)}
+.btn-line:hover{color:var(--green);border-color:var(--green)}
+.btn-line:hover .arr{transform:translateX(4px)}
+
+footer{background:var(--ink);border-top:0.5px solid var(--rule)}
+.ft-top{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  padding:3rem 2.5rem;gap:2rem;
+  border-bottom:0.5px solid rgba(255,255,255,0.06);
+}
+.ft-brand{
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;
+  font-style:italic;font-weight:300;color:var(--white);margin-bottom:0.35rem;
+}
+.ft-sub{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.25)}
+.ft-nav{display:flex;flex-direction:column;gap:0.5rem}
+.ft-lk{
+  font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:0.45rem;
+  transition:color 0.2s;
+}
+.ft-lk::before{content:'//';color:rgba(255,255,255,0.15);font-size:0.48rem}
+.ft-lk:hover{color:var(--lime)}
+.ft-contact{display:flex;flex-direction:column;gap:0.75rem}
+.ft-cl{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:0.18rem}
+.ft-cv{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:rgba(255,255,255,0.65)}
+.ft-cv a{color:var(--lime)}
+.ft-social{display:flex;gap:1.25rem;margin-top:0.75rem}
+.ft-social a{
+  font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);transition:color 0.2s;display:flex;align-items:center;gap:0.4rem;
+}
+.ft-social a::before{content:'↗';font-size:0.55rem;color:rgba(255,255,255,0.15)}
+.ft-social a:hover{color:var(--lime)}
+.ft-bot{
+  padding:0.9rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.ft-copy{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+.ft-coords{display:flex;gap:1.75rem;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;color:rgba(255,255,255,0.14)}
+
+/* ═══════════════════════════════
+   PROJECT TICKER STRIP
+═══════════════════════════════ */
+.ticker{
+  height:44px;
+  background:var(--ink);
+  border-bottom:0.5px solid rgba(255,255,255,0.06);
+  overflow:hidden;
+  display:flex;align-items:center;
+  position:relative;
+}
+.ticker::before,.ticker::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;
+}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--ink),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--ink),transparent)}
+.ticker-track{
+  display:flex;align-items:center;gap:0;
+  white-space:nowrap;
+  animation:ticker-scroll 28s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes ticker-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+.ticker-item{
+  display:flex;align-items:center;gap:0.75rem;
+  padding:0 2rem;cursor:pointer;
+  border-right:0.5px solid rgba(255,255,255,0.06);
+  height:44px;
+  transition:background 0.2s;
+}
+.ticker-item:hover{background:rgba(255,255,255,0.04)}
+.ticker-num{
+  font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.16em;
+  color:rgba(255,255,255,0.22);
+}
+.ticker-name{
+  font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-style:italic;
+  font-weight:300;color:rgba(255,255,255,0.65);
+  transition:color 0.2s;
+}
+.ticker-item:hover .ticker-name{color:var(--white)}
+.ticker-type{
+  font-family:'DM Mono',monospace;font-size:0.46rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.22);
+  border:0.5px solid rgba(255,255,255,0.12);padding:0.1rem 0.45rem;
+}
+.ticker-sep{
+  font-size:0.45rem;color:rgba(255,255,255,0.12);
+  padding:0 0.5rem;
+}
+
+/* ═══════════════════════════════
+   HOME — HERO
+═══════════════════════════════ */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  height:calc(100vh - var(--nav-h));
+  border-bottom:0.5px solid var(--rule);
+}
+.hero-l{
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:4.5vw 4vw;background:#070F1C;
+  position:relative;overflow:hidden;
+  border-right:0.5px solid rgba(255,255,255,0.05);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.hero-scan{
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,220,200,0.55),transparent);
+  animation:hscan 6s linear infinite;
+}
+@keyframes hscan{0%{top:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:100%;opacity:0}}
+.hero-ey{
+  font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(255,255,255,0.28);margin-bottom:1.5rem;
+  position:relative;z-index:1;display:flex;align-items:center;gap:0.7rem;
+}
+.hero-ey::before{content:'';width:18px;height:0.5px;background:var(--lime)}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,7.5vw,9rem);
+  font-weight:300;line-height:0.9;letter-spacing:-0.02em;
+  color:var(--white);
+  position:relative;z-index:1;margin-bottom:2rem;
+}
+.hero-name em{font-style:italic;color:var(--lime)}
+.hero-stmt{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(0.9rem,1.3vw,1.1rem);
+  font-style:italic;font-weight:300;line-height:1.65;
+  color:rgba(255,255,255,0.42);
+  max-width:380px;position:relative;z-index:1;
+  border-left:1px solid rgba(232,220,200,0.3);padding-left:1.2rem;
+}
+.hero-scroll{
+  position:absolute;bottom:2rem;right:2rem;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:0.45rem;
+}
+.hero-scroll-l{
+  width:0.5px;height:42px;
+  background:rgba(255,255,255,0.14);
+  animation:spulse 2.2s ease-in-out infinite;
+}
+@keyframes spulse{0%,100%{transform:scaleY(1)}50%{transform:scaleY(0.45)}}
+.hero-scroll-t{
+  font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.18);writing-mode:vertical-rl;
+}
+.hero-r{display:grid;grid-template-rows:1fr 1fr}
+.hero-img{position:relative;border-bottom:0.5px solid var(--rule)}
+.hero-img:last-child{border-bottom:none}
+.hero-img-lbl{
+  position:absolute;bottom:0.9rem;right:0.9rem;
+  font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink-4);background:rgba(245,240,230,0.92);padding:0.2rem 0.55rem;
+}
+
+/* HOME — STATUS BAR */
+.status{
+  display:flex;align-items:center;
+  background:#070F1C;border-bottom:0.5px solid var(--rule);
+  overflow-x:auto;
+}
+.si{
+  display:flex;align-items:center;gap:0.45rem;
+  padding:0.65rem 1.5rem;border-right:0.5px solid rgba(255,255,255,0.05);
+  white-space:nowrap;
+}
+.sdot{
+  width:5px;height:5px;border-radius:50%;background:var(--lime);
+  animation:blink 2.2s ease-in-out infinite;flex-shrink:0;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.sl{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.22)}
+.sv{font-family:'DM Mono',monospace;font-size:0.52rem;color:rgba(255,255,255,0.52)}
+
+/* HOME — PRACTICE STATEMENT */
+.ps{
+  display:grid;grid-template-columns:220px 1fr;
+  border-bottom:0.5px solid var(--rule);
+}
+.ps-l{
+  padding:3.5rem 2rem;border-right:0.5px solid var(--rule);
+  display:flex;flex-direction:column;gap:0.75rem;justify-content:center;
+}
+.ps-lbl{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-4)}
+.ps-num{
+  font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;
+  color:var(--bg-3);line-height:1;
+  -webkit-text-stroke:0.5px var(--ink-4);
+}
+.ps-r{
+  padding:3.5rem 4rem;
+  display:flex;flex-direction:column;justify-content:center;gap:1.2rem;
+}
+.ps-pull{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.4rem,2.2vw,2rem);font-weight:300;line-height:1.4;
+}
+.ps-pull em{font-style:italic;color:var(--green)}
+.ps-body{font-size:0.82rem;color:var(--ink-3);line-height:1.9;max-width:560px}
+
+/* HOME — DATA STRIP */
+.ds{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  border-bottom:0.5px solid var(--rule);
+}
+.di{padding:1.5rem;border-right:0.5px solid var(--rule)}
+.di:last-child{border-right:none}
+.dl{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.35rem}
+.dv{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--green);line-height:1}
+.du{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--ink-4);margin-top:0.18rem;letter-spacing:0.1em}
+
+/* HOME — SECTION HEADER */
+.sh{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:2rem 2.5rem;border-bottom:0.5px solid var(--rule);
+}
+.sh-l{display:flex;align-items:baseline;gap:1.2rem}
+.sh-n{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-4)}
+.sh-t{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300}
+
+/* HOME — PROJECT SIDE SCROLL (cards replaced by pss-* above) */
+
+/* ═══════════════════════════════
+   HOME — PROJECT SIDE SCROLL
+═══════════════════════════════ */
+.proj-scroll-section{
+  position:relative;
+  border-bottom:0.5px solid var(--rule);
+  background:var(--ink);
+  overflow:hidden;
+}
+/* Fixed left info panel */
+.pss-panel{
+  position:absolute;top:0;left:0;bottom:0;
+  width:340px;z-index:10;
+  background:rgba(7,15,28,0.96);
+  border-right:0.5px solid rgba(255,255,255,0.08);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:3rem 2.5rem;
+  backdrop-filter:blur(8px);
+  transition:opacity 0.4s;
+}
+.pss-eyebrow{
+  font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:0.6rem;
+  display:flex;align-items:center;gap:0.6rem;
+  transition:opacity 0.3s;
+}
+.pss-eyebrow::before{content:'';width:14px;height:0.5px;background:rgba(255,255,255,0.45)}
+.pss-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;
+  color:var(--white);line-height:1.05;margin-bottom:1rem;
+  transition:opacity 0.3s;
+}
+.pss-desc{
+  font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.75;
+  margin-bottom:1.25rem;transition:opacity 0.3s;
+}
+.pss-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.75rem}
+.pss-tag{
+  font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;
+  border:0.5px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);padding:0.18rem 0.5rem;
+}
+.pss-tag-g{border-color:rgba(255,255,255,0.55);color:rgba(255,255,255,0.85)}
+.pss-cta{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--white);border-bottom:1px solid rgba(255,255,255,0.3);
+  padding-bottom:0.2rem;background:none;border-top:none;border-left:none;border-right:none;
+  transition:color 0.2s,border-color 0.2s;
+}
+.pss-cta .arr{transition:transform 0.25s var(--ease)}
+.pss-cta:hover{color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2)}
+.pss-cta:hover .arr{transform:translateX(4px)}
+
+/* Nav arrows + counter */
+.pss-nav{
+  position:absolute;bottom:2.5rem;left:2.5rem;z-index:11;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.pss-arr{
+  width:40px;height:40px;border:0.5px solid rgba(255,255,255,0.2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:none;color:rgba(255,255,255,0.5);font-size:0.9rem;
+  transition:border-color 0.2s,color 0.2s,background 0.2s;
+}
+.pss-arr:hover{border-color:rgba(255,255,255,0.7);color:var(--white);background:rgba(255,255,255,0.06)}
+.pss-counter{
+  font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;
+  color:rgba(255,255,255,0.28);
+}
+
+/* Dot indicators on panel */
+.pss-dots{
+  position:absolute;top:2.5rem;left:2.5rem;z-index:11;
+  display:flex;flex-direction:column;gap:0.5rem;
+}
+.pss-dot{
+  width:2px;height:24px;background:rgba(255,255,255,0.15);
+  transition:background 0.3s,height 0.3s var(--ease-out);cursor:pointer;
+}
+.pss-dot.on{background:rgba(255,255,255,0.85);height:36px}
+
+/* Scrollable track — sits to the right of the panel */
+.pss-track-wrap{
+  margin-left:340px;
+  height:88vh;
+  overflow:hidden;
+  position:relative;
+  cursor:grab;
+}
+.pss-track-wrap:active{cursor:grabbing}
+.pss-track{
+  display:flex;
+  height:100%;
+  transition:transform 0.7s var(--ease-out);
+  will-change:transform;
+}
+.pss-slide{
+  flex:0 0 calc(100vw - 340px);
+  height:100%;position:relative;overflow:hidden;
+  background-color:var(--bg-3);
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+.pss-slide-bg{
+  position:absolute;inset:0;
+  transition:transform 0.7s var(--ease-out);
+}
+/* Subtle parallax — inner image moves slower than track */
+.pss-slide.active .pss-slide-bg{transform:scale(1.03)}
+.pss-slide-meta{
+  position:absolute;bottom:2rem;right:2rem;
+  font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);text-align:right;line-height:1.9;
+}
+/* Drag hint */
+.pss-drag-hint{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:5;pointer-events:none;
+  display:flex;align-items:center;gap:0.6rem;
+  font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.2);
+  animation:hint-fade 3s ease-out forwards;
+}
+@keyframes hint-fade{0%{opacity:1}60%{opacity:1}100%{opacity:0}}
+.pss-drag-arrow{font-size:1.1rem;animation:drag-bounce 1s ease-in-out infinite alternate}
+@keyframes drag-bounce{0%{transform:translateX(-4px)}100%{transform:translateX(4px)}}
+.scroll-connector{
+  display:flex;flex-direction:column;align-items:center;
+  padding:2.5rem 0;
+  border-bottom:0.5px solid var(--rule);
+  background:var(--bg);
+  position:relative;
+  gap:0;
+}
+.sc-line-top{
+  width:0.5px;height:50px;
+  background:linear-gradient(180deg,transparent,var(--ink-4));
+}
+.sc-icon{
+  width:52px;height:52px;
+  border:0.5px solid var(--ink-4);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  animation:sc-pulse 2.5s ease-in-out infinite;
+  background:var(--bg);
+  z-index:1;
+  margin:0;
+}
+@keyframes sc-pulse{
+  0%,100%{border-color:var(--ink-4);box-shadow:none}
+  50%{border-color:var(--ink-2);box-shadow:0 0 0 6px rgba(10,10,10,0.06)}
+}
+.sc-icon svg{
+  width:14px;height:14px;
+  animation:sc-drop 2.5s ease-in-out infinite;
+}
+@keyframes sc-drop{
+  0%,100%{transform:translateY(-3px);opacity:0.4}
+  50%{transform:translateY(3px);opacity:1}
+}
+.sc-line-bot{
+  width:0.5px;height:50px;
+  background:linear-gradient(180deg,var(--ink-4),transparent);
+}
+.sc-label{
+  font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--ink-4);margin-top:0.75rem;
+}
+
+/* HOME — GALLERY SLIDESHOW */
+.home-gallery{
+  border-bottom:0.5px solid var(--rule);
+  background:var(--ink);
+  position:relative;
+  overflow:hidden;
+}
+.hg-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem 2.5rem;
+  border-bottom:0.5px solid rgba(255,255,255,0.06);
+}
+.hg-title{
+  font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:rgba(255,255,255,0.35);
+  display:flex;align-items:center;gap:0.75rem;
+}
+.hg-title::before{content:'';width:16px;height:0.5px;background:var(--lime)}
+.hg-controls{display:flex;align-items:center;gap:1rem}
+.hg-prev,.hg-next{
+  width:38px;height:38px;border:0.5px solid rgba(255,255,255,0.14);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:none;cursor:pointer;
+  color:rgba(255,255,255,0.45);font-size:0.85rem;
+  transition:border-color 0.2s,color 0.2s,background 0.2s;
+}
+.hg-prev:hover,.hg-next:hover{
+  border-color:rgba(255,255,255,0.7);color:var(--white);
+  background:rgba(255,255,255,0.06);
+}
+.hg-counter{
+  font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;
+  color:rgba(255,255,255,0.28);
+}
+.hg-track-wrap{
+  position:relative;height:72vh;overflow:hidden;
+  cursor:grab;
+}
+.hg-track-wrap:active{cursor:grabbing}
+.hg-track{
+  display:flex;height:100%;
+  transition:transform 0.65s var(--ease-out);
+}
+.hg-slide{
+  flex:0 0 100%;height:100%;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  background-color:var(--bg-3);
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+.hg-slide-inner{
+  position:absolute;inset:0;
+  transition:transform 0.65s var(--ease-out);
+}
+.hg-slide-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:2rem 2.5rem;
+  background:linear-gradient(0deg,rgba(17,18,8,0.85) 0%,transparent 100%);
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.hg-cap-proj{
+  font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;
+}
+.hg-cap-name{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.5rem);
+  font-weight:300;color:var(--white);line-height:1.1;
+}
+.hg-cap-year{
+  font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;
+  color:rgba(255,255,255,0.35);
+}
+.hg-dots{
+  display:flex;align-items:center;justify-content:center;gap:0.5rem;
+  padding:1.25rem 2.5rem;
+  border-top:0.5px solid rgba(255,255,255,0.06);
+}
+.hg-dot{
+  width:28px;height:2px;background:rgba(255,255,255,0.15);
+  cursor:pointer;transition:background 0.2s,width 0.3s var(--ease-out);
+}
+.hg-dot.on{background:rgba(255,255,255,0.85);width:44px}
+
+/* Autoplay progress line */
+.hg-progress{
+  position:absolute;bottom:0;left:0;height:2px;
+  background:rgba(255,255,255,0.7);opacity:0.7;
+  animation:none;
+}
+.hg-progress.running{
+  animation:hg-prog var(--hg-dur,4s) linear forwards;
+}
+@keyframes hg-prog{0%{width:0}100%{width:100%}}
+
+/* HOME — ABOUT STRIP */
+.ha{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:0.5px solid var(--rule);min-height:55vh;
+}
+.ha-img{position:relative;border-right:0.5px solid var(--rule)}
+.ha-lbl{
+  position:absolute;bottom:1rem;left:1rem;
+  font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink-4);background:rgba(245,240,230,0.92);padding:0.22rem 0.55rem;
+  border-left:1.5px solid var(--green);
+}
+.ha-text{padding:4.5rem 4rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem}
+.ha-ey{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-4)}
+.ha-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.7rem);font-weight:300;line-height:1.2}
+.ha-h em{font-style:italic;color:var(--green)}
+.ha-b{font-size:0.82rem;color:var(--ink-2);line-height:1.9}
+
+/* ═══════════════════════════════
+   WORK PAGE
+═══════════════════════════════ */
+.pg-hdr{
+  padding:3.5rem 2.5rem 2.5rem;border-bottom:0.5px solid var(--rule);
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.pg-hdr h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300}
+.pg-hdr-m{
+  font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink-4);text-align:right;line-height:1.9;
+}
+
+/* Filter bar */
+.fbar{
+  display:flex;align-items:center;gap:0;
+  border-bottom:0.5px solid var(--rule);background:var(--bg-2);
+  overflow-x:auto;
+}
+.fbarlbl{
+  font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--ink-4);padding:0.9rem 1.5rem;border-right:0.5px solid var(--rule);
+  white-space:nowrap;flex-shrink:0;
+}
+.fb{
+  font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink-3);background:transparent;border:none;border-right:0.5px solid var(--rule);
+  padding:0.9rem 1.4rem;white-space:nowrap;transition:all 0.18s;
+}
+.fb:hover{color:var(--ink);background:var(--bg)}
+.fb.on{background:var(--ink);color:var(--white)}
+
+/* Project list rows */
+.plist{border-bottom:0.5px solid var(--rule)}
+.pr{
+  display:grid;grid-template-columns:62px 1fr 170px 110px 54px;
+  border-bottom:0.5px solid var(--rule);cursor:pointer;
+  transition:background 0.15s;align-items:center;
+}
+.pr:hover{background:var(--bg-2)}
+.pr.hidden{display:none}
+.pr-n{
+  padding:0 1.25rem;font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;color:var(--ink-4);
+  border-right:0.5px solid var(--rule);align-self:stretch;display:flex;align-items:center;
+}
+.pr-main{padding:1.65rem 2rem;display:flex;align-items:center;gap:1.5rem}
+.pr-thumb{width:88px;height:64px;flex-shrink:0;position:relative;overflow:hidden;background:var(--bg-3)}
+.pr-ti{position:absolute;inset:0;transition:transform 0.5s var(--ease)}
+.pr:hover .pr-ti{transform:scale(1.06)}
+.pr-info h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;margin-bottom:0.2rem;transition:color 0.18s}
+.pr:hover .pr-info h3{color:var(--green)}
+.pr-info p{font-size:0.72rem;color:var(--ink-3);line-height:1.5}
+.pr-meta{
+  padding:0 1.25rem;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--ink-4);line-height:1.9;
+  border-left:0.5px solid var(--rule);align-self:stretch;display:flex;flex-direction:column;justify-content:center;
+}
+.pr-type{
+  padding:0 1rem;border-left:0.5px solid var(--rule);align-self:stretch;
+  display:flex;align-items:center;font-family:'DM Mono',monospace;
+  font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);
+}
+.pr-arr{
+  padding:0 1rem;border-left:0.5px solid var(--rule);align-self:stretch;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.8rem;color:var(--ink-4);transition:color 0.18s,transform 0.18s;
+}
+.pr:hover .pr-arr{color:var(--green);transform:translateX(2px)}
+
+/* ═══════════════════════════════
+   PROJECT DETAIL
+═══════════════════════════════ */
+#wd{display:none}
+#wd.on{display:block}
+.back{
+  display:flex;align-items:center;gap:0.55rem;
+  font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink-3);border-bottom:0.5px solid var(--rule);
+  width:100%;padding:1.1rem 2.5rem;transition:color 0.18s;
+}
+.back:hover{color:var(--green)}
+
+.pd-hero{height:68vh;position:relative;overflow:hidden;background:var(--bg-3)}
+.pd-hero img{object-fit:cover!important}
+.pd-hbg{position:absolute;inset:0}
+.pd-hov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(17,18,8,0.82) 0%,rgba(17,18,8,0.08) 55%)}
+.pd-hc{position:absolute;bottom:0;left:0;right:0;padding:2.5rem 3vw}
+.pd-ey{
+  font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(255,255,255,0.42);margin-bottom:0.65rem;
+  display:flex;align-items:center;gap:0.7rem;
+}
+.pd-ey::before{content:'';width:16px;height:0.5px;background:var(--lime)}
+.pd-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,7rem);font-weight:300;color:var(--white);line-height:0.92}
+
+.pd-meta{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:0.5px solid var(--rule);
+}
+.pd-mc{padding:1.25rem 1.75rem;border-right:0.5px solid var(--rule)}
+.pd-mc:last-child{border-right:none}
+.pd-ml{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.32rem}
+.pd-mv{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400}
+
+.pd-body{display:grid;grid-template-columns:300px 1fr;border-bottom:0.5px solid var(--rule)}
+.pd-sb{padding:3rem 2rem;border-right:0.5px solid var(--rule);display:flex;flex-direction:column;gap:2rem}
+.pd-sb-s h4{
+  font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.45rem;
+}
+.pd-sb-s h4::before{content:'//';color:var(--ink-4);font-size:0.42rem}
+.pd-sb-s p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;line-height:1.65;color:var(--ink-2);margin-bottom:0.7rem}
+.pd-sb-s .bt{font-family:'Syne',sans-serif;font-style:normal;font-size:0.78rem;line-height:1.8;color:var(--ink-2)}
+.pd-tools{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.5rem}
+
+.pd-env{display:grid;grid-template-columns:1fr 1fr;gap:0.5px;background:var(--rule);margin-top:0.7rem}
+.pd-ec{background:var(--bg);padding:0.85rem 0.75rem}
+.pd-el{font-family:'DM Mono',monospace;font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.18rem}
+.pd-ev{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--green)}
+
+.pd-gal{padding:3rem 2.5rem}
+.pd-gg{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pd-gp{display:contents}
+.pd-gi{cursor:zoom-in;background-color:var(--bg-3);background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:30px 30px}
+.pd-gi-i{transition:filter 0.3s}
+.pd-gi:hover img{filter:brightness(0.88)}
+.pd-gi.full{grid-column:1/-1}
+
+.pd-next{
+  position:relative;overflow:hidden;cursor:pointer;
+  background:var(--ink);min-height:32vh;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.3s;
+}
+.pd-next:hover{background:var(--green)}
+.pd-next-bg{position:absolute;inset:0;opacity:0.12;transition:opacity 0.5s}
+.pd-next:hover .pd-next-bg{opacity:0.28}
+.pd-next-c{position:relative;z-index:1;text-align:center}
+.pd-nl{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:0.6rem}
+.pd-nn{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,4.5rem);font-weight:300;color:var(--white);line-height:0.95}
+.pd-na{
+  width:44px;height:44px;border:0.5px solid rgba(255,255,255,0.2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:1rem auto 0;
+  font-size:1rem;color:rgba(255,255,255,0.38);
+  transition:transform 0.3s,border-color 0.3s,color 0.3s;
+}
+.pd-next:hover .pd-na{transform:translateY(4px);border-color:rgba(255,255,255,0.6);color:var(--white)}
+.pd-nm{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-top:0.5rem}
+
+/* ═══════════════════════════════
+   ABOUT PAGE
+═══════════════════════════════ */
+.ab-hero{display:grid;grid-template-columns:1fr 1fr;min-height:62vh;border-bottom:0.5px solid var(--rule)}
+.ab-port{position:relative;border-right:0.5px solid var(--rule);overflow:hidden}
+.ab-cap{
+  position:absolute;bottom:1rem;left:1rem;
+  font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--white);background:rgba(17,18,8,0.72);padding:0.26rem 0.6rem;
+  border-left:1.5px solid var(--lime);
+}
+.ab-intro{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem}
+.ab-ey{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-4)}
+.ab-intro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.2}
+.ab-intro h2 em{font-style:italic;color:var(--ink-2)}
+.ab-intro p{font-size:0.82rem;color:var(--ink-2);line-height:1.9}
+
+/* Skills */
+.sk-block{border-bottom:0.5px solid var(--rule)}
+.sk-hdr{display:grid;grid-template-columns:220px 1fr;border-bottom:0.5px solid var(--rule)}
+.sk-hl{
+  padding:2rem;font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--ink-4);border-right:0.5px solid var(--rule);display:flex;align-items:center;
+}
+.sk-hd{padding:2rem 3rem;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;line-height:1.6;color:var(--ink-2)}
+.sk-row{
+  display:grid;grid-template-columns:220px 1fr 185px;
+  border-bottom:0.5px solid var(--rule);align-items:center;
+  transition:background 0.15s;
+}
+.sk-row:hover{background:var(--bg-2)}
+.sk-name{padding:1.1rem 2rem;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;border-right:0.5px solid var(--rule)}
+.sk-tools{padding:0 2rem;font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink-3);letter-spacing:0.06em}
+.sk-bw{padding:0 2rem;display:flex;align-items:center;gap:0.7rem;border-left:0.5px solid var(--rule)}
+.sk-bt{flex:1;height:2px;background:var(--bg-3)}
+.sk-bf{height:2px;background:var(--ink);transition:width 1.1s var(--ease-out)}
+.sk-pct{font-family:'DM Mono',monospace;font-size:0.52rem;color:var(--ink-4);min-width:28px;text-align:right}
+
+/* Experience */
+.ex-block{border-bottom:0.5px solid var(--rule)}
+.ex-hdr{
+  padding:2rem 2rem 1rem;font-family:'DM Mono',monospace;font-size:0.55rem;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-4);
+  border-bottom:0.5px solid var(--rule);
+}
+.ex-row{
+  display:grid;grid-template-columns:220px 1fr;
+  border-bottom:0.5px solid var(--rule);padding:2.5rem 2rem;gap:2rem;
+}
+.ex-d{border-right:0.5px solid var(--rule);padding-right:2rem}
+.ex-yr{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--ink-4);line-height:1;margin-bottom:0.28rem}
+.ex-per{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--ink-4);letter-spacing:0.1em}
+.ex-ty{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);margin-top:0.35rem}
+.ex-c h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;margin-bottom:0.3rem}
+.ex-c p{font-size:0.78rem;color:var(--ink-2);line-height:1.85}
+.ex-courses{display:flex;flex-direction:column;gap:0.55rem;margin-top:0.5rem}
+.ex-course{font-size:0.76rem;color:var(--ink-2);line-height:1.6;padding-left:0.9rem;position:relative}
+.ex-course::before{content:'//';position:absolute;left:0;font-family:'DM Mono',monospace;font-size:0.55rem;color:var(--ink-4);top:0.15rem}
+
+/* ═══════════════════════════════
+   SKILLS — CATEGORY HEADERS
+═══════════════════════════════ */
+.sk-cat-hdr{
+  padding:0.65rem 2rem;
+  background:var(--bg-2);
+  border-bottom:0.5px solid var(--rule);
+  border-top:0.5px solid var(--rule);
+}
+.sk-cat-hdr span{
+  font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ═══════════════════════════════
+   SOFTWARE ICON GRID
+═══════════════════════════════ */
+.sw-block{border-bottom:0.5px solid var(--rule)}
+.sw-hdr{
+  display:grid;grid-template-columns:220px 1fr;
+  border-bottom:0.5px solid var(--rule);
+}
+.sw-hl{
+  padding:2rem;font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--ink-4);
+  border-right:0.5px solid var(--rule);display:flex;align-items:center;
+}
+.sw-hd{
+  padding:2rem 3rem;font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:300;line-height:1.6;color:var(--ink-2);
+}
+.sw-grid{
+  display:grid;grid-template-columns:repeat(9,1fr);
+  border-top:0.5px solid var(--rule);
+}
+.sw-item{
+  padding:1.5rem 1rem;border-right:0.5px solid var(--rule);
+  display:flex;flex-direction:column;align-items:center;gap:0.6rem;
+  transition:background 0.15s;cursor:default;
+}
+.sw-item:last-child{border-right:none}
+.sw-item:hover{background:var(--bg-2)}
+.sw-icon{
+  width:44px;height:44px;border:0.5px solid var(--ink-4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:0.62rem;font-weight:400;
+  color:var(--ink-2);letter-spacing:0.06em;
+  transition:border-color 0.2s,color 0.2s,background 0.2s;
+}
+.sw-item:hover .sw-icon{
+  border-color:var(--ink);background:var(--ink);color:var(--white);
+}
+.sw-name{
+  font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--ink-4);text-align:center;line-height:1.4;
+}
+
+/* ═══════════════════════════════
+   WRITING & DOCUMENTATION
+═══════════════════════════════ */
+.wr-block{border-bottom:0.5px solid var(--rule)}
+.wr-hdr{
+  display:grid;grid-template-columns:220px 1fr;
+  border-bottom:0.5px solid var(--rule);align-items:start;
+}
+.wr-hdr-l{
+  padding:2rem 2rem;border-right:0.5px solid var(--rule);
+  display:flex;flex-direction:column;gap:0.5rem;
+}
+.wr-num{
+  font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--ink-4);
+}
+.wr-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;
+  color:var(--ink);line-height:1.2;
+}
+.wr-intro{
+  padding:2rem 3rem;font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:300;line-height:1.65;color:var(--ink-2);
+  font-style:italic;
+}
+.wr-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  border-top:0.5px solid var(--rule);
+}
+.wr-card{
+  padding:2rem 2rem;border-right:0.5px solid var(--rule);
+  border-bottom:0.5px solid var(--rule);
+  display:flex;flex-direction:column;gap:0.75rem;
+  transition:background 0.15s;
+}
+.wr-card:hover{background:var(--bg-2)}
+.wr-card:nth-child(3n){border-right:none}
+.wr-card-top{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:0.25rem;
+}
+.wr-card-num{
+  font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.16em;
+  color:var(--ink-4);
+}
+.wr-card-type{
+  font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--ink-3);
+  border:0.5px solid var(--rule);padding:0.15rem 0.5rem;
+}
+.wr-card-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;
+  color:var(--ink);line-height:1.25;
+}
+.wr-card-year{
+  font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;
+  color:var(--ink-4);
+}
+.wr-card-desc{
+  font-size:0.78rem;color:var(--ink-2);line-height:1.75;flex:1;
+}
+.wr-card-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.25rem}
+
+/* ═══════════════════════════════
+   FLIPBOOK
+═══════════════════════════════ */
+.fb-flip{border-left:1px solid var(--rule)!important;margin-left:0.25rem}
+.flip-wrap{
+  background:var(--bg-2);
+  border-bottom:0.5px solid var(--rule);
+}
+.flip-toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 2rem;border-bottom:0.5px solid var(--rule);
+  background:var(--bg);
+}
+.flip-toolbar-l{display:flex;align-items:center;gap:1.25rem}
+.flip-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-3)}
+.flip-sub{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;color:var(--ink-4)}
+.flip-toolbar-r{display:flex;align-items:center;gap:0.5rem}
+.flip-pg-count{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-4);margin-right:0.5rem}
+.flip-btn{
+  width:34px;height:34px;border:0.5px solid var(--rule);background:transparent;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--ink-3);
+  transition:background 0.15s,color 0.15s,border-color 0.15s;
+}
+.flip-btn:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.flip-btn-reset{border-color:var(--rule)!important}
+
+/* Upload zone */
+.flip-upload-zone{
+  display:flex;flex-direction:column;align-items:center;
+  padding:4rem 2rem;gap:1.25rem;
+}
+.flip-drop{
+  width:100%;max-width:520px;
+  border:1px dashed var(--ink-4);
+  padding:3rem 2rem;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  cursor:pointer;transition:border-color 0.2s,background 0.2s;
+}
+.flip-drop:hover{border-color:var(--ink);background:var(--bg)}
+.flip-drop.drag-over{border-color:var(--ink);background:var(--bg);border-style:solid}
+.flip-drop-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;
+  color:var(--ink);margin-bottom:0.4rem;
+}
+.flip-drop-sub{font-size:0.78rem;color:var(--ink-3);line-height:1.6}
+.flip-or{
+  display:flex;align-items:center;gap:1rem;width:100%;max-width:520px;
+}
+.flip-or::before,.flip-or::after{content:'';flex:1;height:0.5px;background:var(--rule)}
+.flip-or span{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4)}
+.flip-demo-btn{
+  font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink);background:none;border:none;border-bottom:1px solid var(--ink);
+  padding-bottom:0.2rem;transition:color 0.2s,border-color 0.2s;
+}
+.flip-demo-btn:hover{color:var(--ink-3);border-color:var(--ink-3)}
+
+/* Book stage */
+.flip-stage{
+  display:flex;flex-direction:column;align-items:center;
+  padding:3rem 2rem 2rem;gap:1.5rem;
+  background:var(--bg-2);
+}
+.flip-book-wrap{
+  position:relative;display:flex;align-items:center;gap:0;
+  width:100%;max-width:1000px;
+}
+.flip-side-btn{
+  position:absolute;top:0;bottom:0;width:80px;
+  background:none;border:none;cursor:pointer;z-index:5;opacity:0;
+  transition:opacity 0.2s;
+}
+.flip-side-l{left:0}
+.flip-side-r{right:0}
+.flip-book-wrap:hover .flip-side-btn{opacity:1}
+.flip-book{
+  display:flex;width:100%;max-width:1000px;
+  box-shadow:0 8px 40px rgba(13,27,46,0.22);
+  position:relative;
+}
+.flip-leaf{
+  flex:1;overflow:hidden;
+  background:var(--white);
+  position:relative;
+}
+.flip-leaf-l{border-right:none}
+.flip-leaf-r{border-left:none}
+.flip-canvas{display:block;width:100%;height:auto}
+.flip-spine-line{
+  width:2px;background:linear-gradient(180deg,rgba(13,27,46,0.06),rgba(13,27,46,0.14),rgba(13,27,46,0.06));
+  flex-shrink:0;align-self:stretch;
+}
+.flip-pn{
+  position:absolute;bottom:0.6rem;left:0;right:0;text-align:center;
+  font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;
+  color:var(--ink-4);
+}
+.flip-pn-r{}
+/* ── 3D page-turn ── */
+.flip-book{perspective:3500px}
+.flip-page-turn{
+  position:absolute;top:0;height:100%;
+  transform-style:preserve-3d;
+  z-index:20;display:none;
+  pointer-events:none;
+}
+.flip-page-turn.flip-fwd{
+  right:0;width:calc(50% - 1px);
+  transform-origin:left center;
+}
+.flip-page-turn.flip-bwd{
+  left:0;width:calc(50% - 1px);
+  transform-origin:right center;
+}
+.flip-face{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  overflow:hidden;
+}
+.flip-face canvas{width:100%;height:100%;object-fit:fill;display:block}
+.flip-face-back{transform:rotateY(180deg)}
+.flip-fold-shadow{
+  position:absolute;inset:0;pointer-events:none;
+}
+.flip-fwd .flip-fold-shadow{
+  background:linear-gradient(to left,rgba(7,15,28,0.32) 0%,rgba(7,15,28,0.06) 35%,transparent 65%);
+}
+.flip-bwd .flip-fold-shadow{
+  background:linear-gradient(to right,rgba(7,15,28,0.32) 0%,rgba(7,15,28,0.06) 35%,transparent 65%);
+}
+.flip-cast-shadow{
+  position:absolute;top:0;bottom:0;width:48px;
+  z-index:6;pointer-events:none;opacity:0;
+  transition:opacity 0.15s;
+}
+.flip-cast-shadow.on{opacity:1}
+.flip-cast-l{left:calc(50% - 1px);
+  background:linear-gradient(to left,rgba(7,15,28,0.22),transparent)}
+.flip-cast-r{right:calc(50% - 1px);
+  background:linear-gradient(to right,rgba(7,15,28,0.22),transparent)}
+@keyframes flip3d-fwd{
+  0%{transform:rotateY(0deg)}
+  100%{transform:rotateY(-180deg)}
+}
+@keyframes flip3d-bwd{
+  0%{transform:rotateY(0deg)}
+  100%{transform:rotateY(180deg)}
+}
+.flip-page-turn.flipping-fwd{
+  animation:flip3d-fwd 0.65s cubic-bezier(0.45,0,0.55,1) forwards;
+}
+.flip-page-turn.flipping-bwd{
+  animation:flip3d-bwd 0.65s cubic-bezier(0.45,0,0.55,1) forwards;
+}
+/* corner curl hint on hover */
+.flip-leaf-r::after,.flip-leaf-l::after{
+  content:'';position:absolute;bottom:0;width:0;height:0;
+  transition:width 0.25s var(--ease),height 0.25s var(--ease);
+  pointer-events:none;z-index:4;
+}
+.flip-leaf-r::after{right:0;
+  background:linear-gradient(225deg,var(--bg-2) 45%,transparent 46%)}
+.flip-leaf-l::after{left:0;
+  background:linear-gradient(315deg,var(--bg-2) 45%,transparent 46%)}
+.flip-book-wrap:hover .flip-leaf-r::after,
+.flip-book-wrap:hover .flip-leaf-l::after{width:28px;height:28px}
+
+/* ── Password modal ── */
+.pw-overlay{
+  position:fixed;inset:0;
+  background:rgba(7,15,28,0.72);
+  z-index:9000;display:none;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.pw-overlay.on{display:flex}
+.pw-box{
+  background:var(--bg);
+  border:0.5px solid var(--rule);
+  padding:3rem 2.5rem;
+  max-width:420px;width:92%;
+  position:relative;
+}
+.pw-lock-icon{
+  font-size:1.4rem;display:block;
+  font-family:'DM Mono',monospace;
+  color:var(--ink-3);letter-spacing:0.06em;
+  margin-bottom:1.5rem;
+}
+.pw-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:300;font-style:italic;
+  color:var(--ink);margin-bottom:0.5rem;line-height:1.2;
+}
+.pw-sub{
+  font-family:'DM Mono',monospace;font-size:0.55rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:2rem;
+}
+.pw-input-wrap{position:relative;margin-bottom:1rem}
+.pw-input{
+  width:100%;padding:0.85rem 1rem;
+  background:var(--bg-2);
+  border:0.5px solid var(--rule);
+  font-family:'DM Mono',monospace;font-size:0.82rem;
+  color:var(--ink);outline:none;
+  transition:border-color 0.2s;letter-spacing:0.06em;
+}
+.pw-input:focus{border-color:var(--ink)}
+.pw-submit{
+  width:100%;padding:0.85rem;
+  background:var(--ink);color:var(--lime);
+  font-family:'DM Mono',monospace;font-size:0.6rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  transition:opacity 0.2s;
+}
+.pw-submit:hover{opacity:0.8}
+.pw-error{
+  font-family:'DM Mono',monospace;font-size:0.52rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:0.75rem;
+  display:none;
+}
+.pw-error.on{display:block}
+.pw-close{
+  position:absolute;top:1.25rem;right:1.25rem;
+  background:none;border:none;cursor:pointer;
+  font-family:'DM Mono',monospace;font-size:0.55rem;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4);
+  transition:color 0.2s;
+}
+.pw-close:hover{color:var(--ink)}
+@keyframes pw-shake{
+  0%,100%{transform:translateX(0)}
+  20%,60%{transform:translateX(-7px)}
+  40%,80%{transform:translateX(7px)}
+}
+.pw-box.shaking{animation:pw-shake 0.35s ease}
+
+/* ── Locked writing card ── */
+.wr-card{position:relative;cursor:pointer}
+.wr-card.locked .wr-card-lock-badge{display:flex}
+.wr-card-lock-badge{
+  display:none;
+  position:absolute;top:1.25rem;right:1.25rem;
+  align-items:center;gap:0.35rem;
+  font-family:'DM Mono',monospace;font-size:0.45rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink-4);
+  border:0.5px solid var(--rule);
+  padding:0.18rem 0.45rem;
+}
+.wr-card.locked:hover{border-color:var(--ink-3)}
+.wr-card-open-btn{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  margin-top:1rem;
+  font-family:'DM Mono',monospace;font-size:0.52rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ink-3);border-bottom:0.5px solid var(--rule);
+  padding-bottom:0.1rem;transition:color 0.2s,border-color 0.2s;
+}
+.wr-card:hover .wr-card-open-btn{color:var(--ink);border-color:var(--ink)}
+
+/* Progress */
+.flip-progress{
+  width:100%;max-width:1000px;height:2px;background:var(--bg-3);
+}
+.flip-progress-f{height:100%;background:var(--ink);transition:width 0.3s var(--ease-out)}
+.flip-nav-hint{
+  font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--ink-4);
+}
+
+/* Loading */
+.flip-loading{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:1rem;padding:5rem 2rem;
+}
+.flip-ring{
+  width:36px;height:36px;
+  border:2px solid var(--bg-3);
+  border-top-color:var(--ink);
+  border-radius:50%;
+  animation:flip-spin 0.8s linear infinite;
+}
+@keyframes flip-spin{to{transform:rotate(360deg)}}
+.flip-loading span{
+  font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ═══════════════════════════════
+   CONTACT PAGE
+═══════════════════════════════ */
+.ct-layout{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:calc(100vh - var(--nav-h) - 56px);
+  border-bottom:0.5px solid var(--rule);
+}
+.ct-l{padding:5rem 3.5rem;border-right:0.5px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between}
+.ct-ey{
+  font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;
+}
+.ct-ey::before{content:'';width:14px;height:0.5px;background:var(--ink-4)}
+.ct-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:300;line-height:1.1;margin-bottom:1.5rem}
+.ct-h em{font-style:italic;color:var(--green)}
+.ct-body{font-size:0.82rem;color:var(--ink-2);line-height:1.85;max-width:360px;margin-bottom:2.5rem}
+.ct-dets{display:flex;flex-direction:column;gap:1.2rem}
+.ctd-l{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.28rem;display:flex;align-items:center;gap:0.38rem}
+.ctd-l::before{content:'›';color:var(--green)}
+.ctd-v{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400}
+.ctd-v a{color:var(--green)}
+.ctd-v.avail{color:var(--green-2)}
+.ct-img{height:190px;margin-top:2.5rem;position:relative;overflow:hidden}
+.ct-r{padding:5rem 3.5rem}
+.ct-rl{
+  font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:2.5rem;display:flex;align-items:center;gap:0.6rem;
+}
+.ct-rl::before{content:'';width:14px;height:0.5px;background:var(--ink-4)}
+.fg{margin-bottom:1.6rem}
+.fg label{display:block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.48rem}
+.fg input,.fg textarea,.fg select{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--rule);
+  padding:0.62rem 0;font-family:'Syne',sans-serif;font-size:0.88rem;color:var(--ink);
+  outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none;border-radius:0;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-bottom-color:var(--ink)}
+.fg textarea{resize:vertical;min-height:88px}
+.fg select{background:var(--bg);cursor:pointer}
+.fg select option{background:var(--white)}
+.fsub{
+  font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--white);background:var(--ink);border:none;
+  padding:0.92rem 2.5rem;width:100%;margin-top:0.5rem;
+  transition:background 0.2s;
+}
+.fsub:hover{background:var(--green)}
+.fok{display:none;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--green);text-align:center;padding:3rem}
+
+/* ═══════════════════════════════
+   LIGHTBOX
+═══════════════════════════════ */
+#lb{
+  display:none;position:fixed;inset:0;z-index:300;
+  background:rgba(17,18,8,0.97);
+  align-items:center;justify-content:center;
+}
+#lb.on{display:flex}
+#lb img{max-width:90vw;max-height:88vh;object-fit:scale-down}
+.lb-close{
+  position:absolute;top:1.5rem;right:2rem;
+  font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.28);background:none;border:none;transition:color 0.2s;
+}
+.lb-close:hover{color:var(--white)}
+.lb-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.28);background:none;border:none;padding:1rem 1.5rem;transition:color 0.2s;
+}
+.lb-btn:hover{color:var(--white)}
+#lb-prev{left:0}
+#lb-next{right:0}
+
+/* ═══════════════════════════════
+   RESPONSIVE
+═══════════════════════════════ */
+@media(max-width:880px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mob{display:flex}
+  .hero{grid-template-columns:1fr;grid-template-rows:65vh 35vh}
+  .hpg,.ha,.ab-hero,.ct-layout{grid-template-columns:1fr}
+  .ps{grid-template-columns:1fr}
+  .ps-l{border-right:none;border-bottom:0.5px solid var(--rule)}
+  .ds{grid-template-columns:1fr 1fr}
+  .pd-body{grid-template-columns:1fr}
+  .pd-meta{grid-template-columns:1fr 1fr}
+  .sk-hdr{grid-template-columns:1fr}
+  .sk-hl{border-right:none;border-bottom:0.5px solid var(--rule)}
+  .sk-row{grid-template-columns:1fr}
+  .ex-row{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr;gap:2.5rem}
+  .pr{grid-template-columns:46px 1fr}
+  .pr-meta,.pr-type,.pr-arr{display:none}
+  .sw-grid{grid-template-columns:repeat(4,1fr)}
+  .wr-grid{grid-template-columns:1fr}
+  .wr-card:nth-child(3n){border-right:0.5px solid var(--rule)}
+  .wr-hdr{grid-template-columns:1fr}
+  .wr-hdr-l{border-right:none;border-bottom:0.5px solid var(--rule)}
+  .sw-hdr{grid-template-columns:1fr}
+  .sw-hl{border-right:none;border-bottom:0.5px solid var(--rule)}
+  .pss-panel{position:relative;width:100%;height:auto;border-right:none;border-bottom:0.5px solid rgba(255,255,255,0.06)}
+  .pss-track-wrap{margin-left:0;height:55vh}
+  .pss-slide{flex:0 0 100vw}
+  .pss-dots{flex-direction:row;top:auto;bottom:1rem;left:50%;transform:translateX(-50%)}
+}
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button class="lb-close" onclick="lbClose()">Close ×</button>
+  <button class="lb-btn" id="lb-prev" onclick="lbNav(-1)">← Prev</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-btn" id="lb-next" onclick="lbNav(1)">Next →</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <button class="nav-logo" onclick="go('home')">
+    <div class="nav-mark">SVD</div>
+    Sebastian Victor Dawber
+  </button>
+  <div class="nav-links">
+    <button class="nl on" id="nl-home" onclick="go('home')"><span class="nl-dot"></span>Home</button>
+    <button class="nl" id="nl-work" onclick="go('work')"><span class="nl-dot"></span>Work</button>
+    <button class="nl" id="nl-about" onclick="go('about')"><span class="nl-dot"></span>About</button>
+    <button class="nl" id="nl-contact" onclick="go('contact')"><span class="nl-dot"></span>Contact</button>
+  </div>
+  <button class="nav-cta" onclick="go('contact')">Get in touch</button>
+  <button class="nav-mob" onclick="mobMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════
+     HOME
+══════════════════════════════════ -->
+<div class="page on" id="page-home">
+
+  <!-- PROJECT TICKER STRIP -->
+  <div class="ticker">
+    <div class="ticker-track" id="ticker-track">
+      <!-- items injected by JS twice for seamless loop -->
+    </div>
+  </div>
+
+  <!-- PROJECT SIDE SCROLL — FIRST THING ON LANDING -->
+  <div class="proj-scroll-section" id="pss">
+
+    <!-- Fixed left info panel -->
+    <div class="pss-panel" id="pss-panel">
+      <div class="pss-dots" id="pss-dots"></div>
+      <div class="pss-eyebrow" id="pss-eyebrow">Competition · 2025</div>
+      <h2 class="pss-name" id="pss-name">TrEES</h2>
+      <p class="pss-desc" id="pss-desc">Off-grid housing above polluted urban tree canopies. Python pollution data as generative design input.</p>
+      <div class="pss-tags" id="pss-tags"></div>
+      <button class="pss-cta" id="pss-cta">View project <span class="arr">→</span></button>
+      <div class="pss-nav">
+        <button class="pss-arr" onclick="pssNav(-1)" aria-label="Prev">←</button>
+        <span class="pss-counter" id="pss-counter">01 / 09</span>
+        <button class="pss-arr" onclick="pssNav(1)" aria-label="Next">→</button>
+      </div>
+    </div>
+
+    <!-- Scrollable slides -->
+    <div class="pss-track-wrap" id="pss-wrap">
+      <div class="pss-track" id="pss-track">
+
+        <!-- Slides built by buildPSSSlides() -->
+
+      </div>
+      <!-- Drag hint -->
+      <div class="pss-drag-hint">
+        <span class="pss-drag-arrow">←</span>
+        <span>Drag to explore</span>
+        <span class="pss-drag-arrow">→</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCROLL CONNECTOR -->
+  <div class="scroll-connector">
+    <div class="sc-line-top"></div>
+    <div class="sc-icon">
+      <svg viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="12" height="18" rx="6" stroke="currentColor" stroke-width="1" fill="none" style="color:var(--ink-4)"/>
+        <rect x="6" y="4" width="2" height="4" rx="1" fill="var(--ink-3)"/>
+      </svg>
+    </div>
+    <div class="sc-line-bot"></div>
+    <span class="sc-label">Image gallery</span>
+  </div>
+
+  <!-- GALLERY SLIDESHOW -->
+  <div class="home-gallery">
+    <div class="hg-header">
+      <div class="hg-title">// Image Gallery — Selected Works</div>
+      <div class="hg-controls">
+        <div class="hg-counter" id="hg-counter">01 / 13</div>
+        <button class="hg-prev" onclick="hgNav(-1)" aria-label="Previous">←</button>
+        <button class="hg-next" onclick="hgNav(1)" aria-label="Next">→</button>
+      </div>
+    </div>
+    <div class="hg-track-wrap" id="hg-wrap">
+      <div class="hg-track" id="hg-track">
+
+        <div class="hg-slide" onclick="openProj('trees')">
+          <img class="hg-slide-inner" src="hero_slider/trees-hero.jpg" alt="TrEES" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">TrEES · Competition</div><div class="hg-cap-name">Off-grid treehouse</div></div>
+            <div class="hg-cap-year">2025</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('trees')">
+          <img class="hg-slide-inner" src="Projects/1_TREEs/R1.jpg" alt="TrEES" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">TrEES · Competition</div><div class="hg-cap-name">PM2.5 pollution analysis</div></div>
+            <div class="hg-cap-year">2025</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('b2b')">
+          <img class="hg-slide-inner" src="Projects/2_B2B/coverimage_6.jpg" alt="Back to Basics" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Back to Basics · Thesis</div><div class="hg-cap-name">Exterior render</div></div>
+            <div class="hg-cap-year">2019–20</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('b2b')">
+          <img class="hg-slide-inner" src="Projects/2_B2B/Startegy%20axo.jpg" alt="Back to Basics" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Back to Basics · Thesis</div><div class="hg-cap-name">Shadow study</div></div>
+            <div class="hg-cap-year">2019–20</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('offgrid')">
+          <img class="hg-slide-inner" src="hero_slider/offgrid-hero.jpg" alt="Off-Grid Home" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Off-Grid Home · Competition</div><div class="hg-cap-name">Exterior render</div></div>
+            <div class="hg-cap-year">2023</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('offgrid')">
+          <img class="hg-slide-inner" src="Projects/3_Offgrid/bathroom2.jpg" alt="Off-Grid Home" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Off-Grid Home · Competition</div><div class="hg-cap-name">Section through 37m² dwelling</div></div>
+            <div class="hg-cap-year">2023</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('coliving')">
+          <img class="hg-slide-inner" src="image/4_coliving_cover.jpg" alt="Coliving" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Coliving · Professional</div><div class="hg-cap-name">Work complex for artisans</div></div>
+            <div class="hg-cap-year">2023</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('landscape')">
+          <img class="hg-slide-inner" src="hero_slider/landscape-hero.jpg" alt="Landscape" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Landscape · Education</div><div class="hg-cap-name">Site survey</div></div>
+            <div class="hg-cap-year">2022–23</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('wy')">
+          <img class="hg-slide-inner" src="hero_slider/wy-hero.jpg" alt="WY" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">WY · Professional</div><div class="hg-cap-name">Temporary pavilion</div></div>
+            <div class="hg-cap-year">2025</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('together')">
+          <img class="hg-slide-inner" src="hero_slider/together-hero.jpg" alt="Together" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Together · Academic</div><div class="hg-cap-name">Artist residency</div></div>
+            <div class="hg-cap-year">2017–18</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('yingyang')">
+          <img class="hg-slide-inner" src="hero_slider/yingyang-hero.jpg" alt="Ying Yang" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Ying Yang · Academic</div><div class="hg-cap-name">South façade — light concrete</div></div>
+            <div class="hg-cap-year">2018–19</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('yingyang')">
+          <img class="hg-slide-inner" src="Projects/8_Ying%20Yang/design%20developement_1_yingyang..jpg" alt="Ying Yang" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Ying Yang · Academic</div><div class="hg-cap-name">Ladybug daylight analysis</div></div>
+            <div class="hg-cap-year">2018–19</div>
+          </div>
+        </div>
+
+        <div class="hg-slide" onclick="openProj('schold')">
+          <img class="hg-slide-inner" src="hero_slider/schold-hero.jpg" alt="Schold" loading="lazy" style="width:100%;height:100%;object-fit:scale-down;display:block">
+          <div class="hg-slide-caption">
+            <div><div class="hg-cap-proj">Schold · Academic</div><div class="hg-cap-name">Adaptive structure</div></div>
+            <div class="hg-cap-year">2017–18</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="hg-progress" id="hg-prog"></div>
+    </div>
+    <div class="hg-dots" id="hg-dots"></div>
+  </div>
+
+  <footer>
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand">Sebastian Victor Dawber</div>
+        <div class="ft-sub">// Part I Environmental Architect · UK</div>
+      </div>
+      <div class="ft-nav">
+        <button class="ft-lk" onclick="go('work')">Work</button>
+        <button class="ft-lk" onclick="go('about')">About</button>
+        <button class="ft-lk" onclick="go('contact')">Contact</button>
+      </div>
+      <div class="ft-contact">
+        <div><div class="ft-cl">// Email</div><div class="ft-cv"><a href="mailto:svdawber@outlook.com">svdawber@outlook.com</a></div></div>
+        <div><div class="ft-cl">// Status</div><div class="ft-cv" style="color:rgba(255,255,255,0.7)">Available for opportunities</div></div>
+        <!-- TODO: Replace YOUR_LINKEDIN and YOUR_INSTAGRAM with real handles -->
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span class="ft-copy">© 2026 Sebastian Victor Dawber. All rights reserved.</span>
+      <div class="ft-coords"><span>LAT 51.5074°N</span><span>LNG 0.1278°W</span><span>REF SVD-2026</span></div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ══════════════════════════════════
+     WORK
+══════════════════════════════════ -->
+<div class="page" id="page-work">
+
+  <div id="wlv">
+    <div class="pg-hdr">
+      <h1>Work</h1>
+      <div class="pg-hdr-m">Architecture · Environmental Design · Writing<br>Competition entries · 2018 to present</div>
+    </div>
+    <div class="fbar">
+      <span class="fbarlbl">Filter:</span>
+      <button class="fb on" onclick="fw('all',this)">All</button>
+      <button class="fb" onclick="fw('competition',this)">Competition</button>
+      <button class="fb" onclick="fw('academic',this)">Academic</button>
+      <button class="fb" onclick="fw('professional',this)">Professional</button>
+      <button class="fb" onclick="fw('sustainability',this)">Sustainability</button>
+      <button class="fb" onclick="fw('writing',this)">Writing</button>
+      <button class="fb fb-flip" onclick="fw('flipbook',this)">⬡ Portfolio PDF</button>
+    </div>
+    <div class="plist" id="plist"></div>
+
+    <!-- FLIPBOOK VIEWER -->
+    <div id="flip-section" style="display:none">
+      <div class="flip-wrap">
+
+        <div class="flip-toolbar">
+          <div class="flip-toolbar-l">
+            <span class="flip-label">// Portfolio PDF Preview</span>
+            <span class="flip-sub" id="flip-sub">Upload a PDF — rendered locally, nothing sent anywhere</span>
+          </div>
+          <div class="flip-toolbar-r">
+            <span class="flip-pg-count" id="flip-pg-count"></span>
+            <button class="flip-btn" onclick="flipNav(-1)">←</button>
+            <button class="flip-btn" onclick="flipNav(1)">→</button>
+            <button class="flip-btn" onclick="flipFS()" title="Fullscreen">⛶</button>
+            <button class="flip-btn flip-btn-reset" onclick="flipReset()" id="flip-reset-btn" style="display:none">✕ Clear</button>
+          </div>
+        </div>
+
+        <div class="flip-upload-zone" id="flip-upload-zone">
+          <input type="file" id="flip-file" accept=".pdf" style="display:none" onchange="loadFlipPDF(this.files[0])">
+          <div class="flip-drop" id="flip-drop" onclick="document.getElementById('flip-file').click()">
+            <svg width="42" height="48" viewBox="0 0 42 48" fill="none" style="margin-bottom:1rem;color:var(--ink-4)">
+              <rect x="2" y="2" width="28" height="38" rx="3" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M22 2v10h10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M21 24v14M14 30l7-7 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="30" y="28" width="10" height="18" rx="2" fill="var(--ink)" opacity="0.08"/>
+            </svg>
+            <p class="flip-drop-title">Drop PDF here or click to browse</p>
+            <p class="flip-drop-sub">Rendered entirely in your browser — no file is uploaded or stored</p>
+            <div style="display:flex;gap:0.4rem;justify-content:center;margin-top:1rem;flex-wrap:wrap">
+              <span class="tag">PDF only</span><span class="tag">Client-side rendering</span><span class="tag">Private</span>
+            </div>
+          </div>
+          <div class="flip-or"><span>or</span></div>
+          <button class="flip-demo-btn" onclick="loadFlipDemo()">Preview with demo pages →</button>
+        </div>
+
+        <div class="flip-stage" id="flip-stage" style="display:none">
+          <div class="flip-book-wrap" id="flip-book-wrap">
+            <button class="flip-side-btn flip-side-l" onclick="flipNav(-1)"></button>
+            <div class="flip-book" id="flip-book">
+              <div class="flip-leaf flip-leaf-l" id="flip-leaf-l">
+                <canvas id="flip-cl" class="flip-canvas"></canvas>
+                <div class="flip-pn" id="flip-pnl"></div>
+              </div>
+              <div class="flip-spine-line"></div>
+              <div class="flip-leaf flip-leaf-r" id="flip-leaf-r">
+                <canvas id="flip-cr" class="flip-canvas"></canvas>
+                <div class="flip-pn flip-pn-r" id="flip-pnr"></div>
+              </div>
+              <!-- cast shadows on static pages during turn -->
+              <div class="flip-cast-shadow flip-cast-l" id="flip-cast-l"></div>
+              <div class="flip-cast-shadow flip-cast-r" id="flip-cast-r"></div>
+              <!-- 3D turning page overlay -->
+              <div class="flip-page-turn" id="flip-page-turn">
+                <div class="flip-face flip-face-front">
+                  <canvas id="flip-ct-front"></canvas>
+                </div>
+                <div class="flip-face flip-face-back">
+                  <canvas id="flip-ct-back"></canvas>
+                </div>
+                <div class="flip-fold-shadow"></div>
+              </div>
+            </div>
+            <button class="flip-side-btn flip-side-r" onclick="flipNav(1)"></button>
+          </div>
+          <div class="flip-progress"><div class="flip-progress-f" id="flip-pf"></div></div>
+          <div class="flip-nav-hint">← → keys · click sides · swipe on mobile</div>
+        </div>
+
+        <div class="flip-loading" id="flip-loading" style="display:none">
+          <div class="flip-ring"></div>
+          <span id="flip-load-txt">Rendering pages…</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WRITING & DOCUMENTATION — shown with All or Writing filter -->
+    <div id="wr-section" class="wr-block">
+      <div class="wr-hdr">
+        <div class="wr-hdr-l">
+          <span class="wr-num">// Writing</span>
+          <h2 class="wr-title">Writing &amp; Documentation</h2>
+        </div>
+        <p class="wr-intro">Architectural thinking made legible. Research documents, feasibility studies, dissertation writing, and project narratives produced alongside design work.</p>
+      </div>
+
+      <div class="wr-grid">
+
+        <div class="wr-card" onclick="openFlipbook('reports/Hempcrete_Dissertation..pdf')">
+          <div class="wr-card-top">
+            <div class="wr-card-num">01</div>
+            <div class="wr-card-type">Dissertation</div>
+          </div>
+          <h3 class="wr-card-title">Back to Basics — Dissertation</h3>
+          <p class="wr-card-year">2019–2020 · Final Year Thesis Component</p>
+          <p class="wr-card-desc">Full academic dissertation examining the relationship between plant-based construction materials and socioeconomic regeneration in deprived urban areas. Covered biobased material science, community architecture theory, and environmental performance analysis methodology.</p>
+          <div class="wr-card-tags"><span class="tag">Academic</span><span class="tag">Research</span><span class="tag">10,000+ words</span></div>
+          <span class="wr-card-open-btn">// Open in flipbook →</span>
+        </div>
+
+        <div class="wr-card" onclick="openFlipbook('reports/strategic-report.pdf')">
+          <div class="wr-card-top">
+            <div class="wr-card-num">02</div>
+            <div class="wr-card-type">Feasibility Study</div>
+          </div>
+          <h3 class="wr-card-title">Socioeconomic Feasibility Report</h3>
+          <p class="wr-card-year">2019–2020 · Thesis Component</p>
+          <p class="wr-card-desc">Structured feasibility study assessing the viability of a mixed-use plant-based housing development. Included site analysis, community needs assessment, material cost comparisons, structural feasibility, and environmental performance projections across multiple design scenarios.</p>
+          <div class="wr-card-tags"><span class="tag">Feasibility</span><span class="tag">Costing</span><span class="tag">Site Analysis</span></div>
+          <span class="wr-card-open-btn">// Open in flipbook →</span>
+        </div>
+
+        <div class="wr-card" onclick="openFlipbook('reports/technical-report.pdf')">
+          <div class="wr-card-top">
+            <div class="wr-card-num">03</div>
+            <div class="wr-card-type">Material Study</div>
+          </div>
+          <h3 class="wr-card-title">Biobased Material Study</h3>
+          <p class="wr-card-year">2019–2020 · Thesis Component</p>
+          <p class="wr-card-desc">Technical documentation of plant-based structural and envelope systems tested for the thesis proposal. Covered CLT structural performance, hempcrete thermal properties (U-value 0.18 W/m²K achieved), mycelium panel applications, bamboo composite systems, and breathable wall construction comparisons.</p>
+          <div class="wr-card-tags"><span class="tag">Technical</span><span class="tag">Materials</span><span class="tag">Performance Data</span></div>
+          <span class="wr-card-open-btn">// Open in flipbook →</span>
+        </div>
+
+        <div class="wr-card" onclick="openFlipbook('reports/BSC%20AED_DS%203A_Sebastian%20Dawber%20moudle2%20(1).pdf')">
+          <div class="wr-card-top">
+            <div class="wr-card-num">04</div>
+            <div class="wr-card-type">Environmental Report</div>
+          </div>
+          <h3 class="wr-card-title">Shadow &amp; Daylight Analysis Report</h3>
+          <p class="wr-card-year">2022–2023 · Spheron Architects</p>
+          <p class="wr-card-desc">Professional planning report documenting shadow testing and daylight analysis for a live planning submission. Six seasonal shadow scenarios — winter solstice, summer solstice, and equinox studies at key hours — written to satisfy planning authority requirements.</p>
+          <div class="wr-card-tags"><span class="tag">Professional</span><span class="tag">Planning</span><span class="tag">V-Ray</span></div>
+          <span class="wr-card-open-btn">// Open in flipbook →</span>
+        </div>
+
+        <div class="wr-card" onclick="openFlipbook('reports/Back%20to%20basics%20off%20gird%20compettion_compressed.pdf')">
+          <div class="wr-card-top">
+            <div class="wr-card-num">05</div>
+            <div class="wr-card-type">Competition Submission</div>
+          </div>
+          <h3 class="wr-card-title">TrEES — Competition Narrative</h3>
+          <p class="wr-card-year">2025 · Competition Entry</p>
+          <p class="wr-card-desc">Full written narrative for the TrEES off-grid treehouse competition entry. Explained the Python-based pollution data extraction methodology, design rationale derived from DEFRA PM2.5 datasets, structural approach for canopy-level placement, and the off-grid systems strategy for energy, water, and waste.</p>
+          <div class="wr-card-tags"><span class="tag">Competition</span><span class="tag">Narrative</span><span class="tag">Data-driven</span></div>
+          <span class="wr-card-open-btn">// Open in flipbook →</span>
+        </div>
+
+        <div class="wr-card" onclick="openFlipbook('reports/Diary.pdf')">
+          <div class="wr-card-top">
+            <div class="wr-card-num">06</div>
+            <div class="wr-card-type">Portfolio Documentation</div>
+          </div>
+          <h3 class="wr-card-title">Academic &amp; Professional Portfolio</h3>
+          <p class="wr-card-year">2017–Present · Ongoing</p>
+          <p class="wr-card-desc">Ongoing production of portfolio documentation across all projects — written project briefs, process descriptions, analytical summaries, and presentation layouts designed and written in-house using Adobe InDesign and Illustrator. Each project documented from concept through environmental analysis to final resolution.</p>
+          <div class="wr-card-tags"><span class="tag">InDesign</span><span class="tag">Illustrator</span><span class="tag">Ongoing</span></div>
+          <span class="wr-card-open-btn">// Open in flipbook →</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="wd"></div>
+
+</div>
+
+<!-- ══════════════════════════════════
+     ABOUT
+══════════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <!-- INTRO -->
+  <div class="ab-hero">
+    <div class="ab-port ph ph-dk" data-label="Headshot / portrait" style="min-height:60vh">
+      <span class="ab-cap">Sebastian Victor Dawber — Part I Architectural Designer</span>
+    </div>
+    <div class="ab-intro">
+      <p class="ab-ey">// Sebastian Victor Dawber — Part I ARB</p>
+      <h2>Designing with <em>data,</em><br>building for <em>people</em></h2>
+      <p>Part I Architectural and Environmental Designer with a specialism in sustainable design and environmental performance analysis. My training covers conceptual drawing through to parametric modelling in Rhinoceros 3D, energy simulation in IES VE, and Python scripting for real environmental data extraction.</p>
+      <p>My thesis — Back to Basics — examined how mixed-use social housing could be constructed entirely from plant-based renewable materials while addressing socioeconomic deprivation. My competition work uses Python to extract live pollution and environmental data as the generative basis for design.</p>
+      <p>Outside of work I enjoy photography, music, art, cycling, running, surfing, scuba diving and fitness. Taking ideas from the greats — Frei Otto, Le Corbusier, Buckminster Fuller. My strengths are conceptual thinking, design development, experimentation and drafting.</p>
+      <p>Currently seeking Part I assistant and architectural technician roles. Available for freelance environmental analysis and visualisation commissions.</p>
+      <button class="btn-line" onclick="go('contact')">Get in touch <span class="arr">→</span></button>
+    </div>
+  </div>
+
+  <!-- SKILLS — EXPANDED FROM SITE -->
+  <div class="sk-block">
+    <div class="sk-hdr">
+      <div class="sk-hl">// Technical Skills</div>
+      <div class="sk-hd">Environmental analysis, parametric design, visualisation, technical drawing, and graphic communication — applied across every stage of the design process.</div>
+    </div>
+
+    <!-- Category headers + rows -->
+    <div class="sk-cat-hdr"><span>Design & Modelling</span></div>
+    <div class="sk-row"><div class="sk-name">Rhinoceros 3D</div><div class="sk-tools">3D modelling · Surface geometry · Parametric base</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="92%" style="width:0%"></div></div><div class="sk-pct">92%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Grasshopper</div><div class="sk-tools">Parametric scripting · Environmental data workflows</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="78%" style="width:0%"></div></div><div class="sk-pct">78%</div></div></div>
+    <div class="sk-row"><div class="sk-name">SketchUp</div><div class="sk-tools">Concept massing · Client communication models</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="80%" style="width:0%"></div></div><div class="sk-pct">80%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Blender</div><div class="sk-tools">3D modelling · Animation · Material studies</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="65%" style="width:0%"></div></div><div class="sk-pct">65%</div></div></div>
+
+    <div class="sk-cat-hdr"><span>Environmental Analysis</span></div>
+    <div class="sk-row"><div class="sk-name">IES VE</div><div class="sk-tools">Thermal simulation · Energy modelling · Daylighting</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="88%" style="width:0%"></div></div><div class="sk-pct">88%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Ladybug</div><div class="sk-tools">Solar analysis · Wind studies · Climate data</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="82%" style="width:0%"></div></div><div class="sk-pct">82%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Python</div><div class="sk-tools">DEFRA pollution data extraction · Environmental scripting</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="62%" style="width:0%"></div></div><div class="sk-pct">62%</div></div></div>
+
+    <div class="sk-cat-hdr"><span>Rendering & Visualisation</span></div>
+    <div class="sk-row"><div class="sk-name">D5 Render</div><div class="sk-tools">Real-time rendering · Exterior + interior visualisation</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="88%" style="width:0%"></div></div><div class="sk-pct">88%</div></div></div>
+    <div class="sk-row"><div class="sk-name">V-Ray</div><div class="sk-tools">Shadow studies · Planning visualisation · Photorealism</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="82%" style="width:0%"></div></div><div class="sk-pct">82%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Enscape</div><div class="sk-tools">Real-time walkthroughs · Client presentations</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="75%" style="width:0%"></div></div><div class="sk-pct">75%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Lumion</div><div class="sk-tools">Landscape visualisation · Animated renders</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="70%" style="width:0%"></div></div><div class="sk-pct">70%</div></div></div>
+
+    <div class="sk-cat-hdr"><span>Technical Drawing</span></div>
+    <div class="sk-row"><div class="sk-name">AutoCAD</div><div class="sk-tools">Plans · Sections · Elevations · Construction details</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="85%" style="width:0%"></div></div><div class="sk-pct">85%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Revit</div><div class="sk-tools">BIM modelling · Documentation · Scheduling</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="72%" style="width:0%"></div></div><div class="sk-pct">72%</div></div></div>
+
+    <div class="sk-cat-hdr"><span>Graphic Design & Documentation</span></div>
+    <div class="sk-row"><div class="sk-name">Adobe Illustrator</div><div class="sk-tools">Diagrams · Site plans · Portfolio layouts · Branding</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="85%" style="width:0%"></div></div><div class="sk-pct">85%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Adobe Photoshop</div><div class="sk-tools">Image editing · Render post-processing · Compositing</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="82%" style="width:0%"></div></div><div class="sk-pct">82%</div></div></div>
+    <div class="sk-row"><div class="sk-name">Adobe InDesign</div><div class="sk-tools">Portfolio design · Reports · Presentation documents</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="80%" style="width:0%"></div></div><div class="sk-pct">80%</div></div></div>
+    <div class="sk-row"><div class="sk-name">CLO 3D</div><div class="sk-tools">Material visualisation · Textile & surface studies</div><div class="sk-bw"><div class="sk-bt"><div class="sk-bf" data-w="55%" style="width:0%"></div></div><div class="sk-pct">55%</div></div></div>
+  </div>
+
+  <!-- SOFTWARE ICON GRID -->
+  <div class="sw-block">
+    <div class="sw-hdr">
+      <div class="sw-hl">// Software</div>
+      <div class="sw-hd">Full stack of platforms used across design, analysis, and production.</div>
+    </div>
+    <div class="sw-grid">
+      <div class="sw-item"><div class="sw-icon">Rh</div><div class="sw-name">Rhinoceros 3D</div></div>
+      <div class="sw-item"><div class="sw-icon">Gh</div><div class="sw-name">Grasshopper</div></div>
+      <div class="sw-item"><div class="sw-icon">Py</div><div class="sw-name">Python</div></div>
+      <div class="sw-item"><div class="sw-icon">IE</div><div class="sw-name">IES VE</div></div>
+      <div class="sw-item"><div class="sw-icon">Lb</div><div class="sw-name">Ladybug</div></div>
+      <div class="sw-item"><div class="sw-icon">D5</div><div class="sw-name">D5 Render</div></div>
+      <div class="sw-item"><div class="sw-icon">VR</div><div class="sw-name">V-Ray</div></div>
+      <div class="sw-item"><div class="sw-icon">En</div><div class="sw-name">Enscape</div></div>
+      <div class="sw-item"><div class="sw-icon">Lu</div><div class="sw-name">Lumion</div></div>
+      <div class="sw-item"><div class="sw-icon">Bl</div><div class="sw-name">Blender</div></div>
+      <div class="sw-item"><div class="sw-icon">Ac</div><div class="sw-name">AutoCAD</div></div>
+      <div class="sw-item"><div class="sw-icon">Rv</div><div class="sw-name">Revit</div></div>
+      <div class="sw-item"><div class="sw-icon">Sk</div><div class="sw-name">SketchUp</div></div>
+      <div class="sw-item"><div class="sw-icon">Ai</div><div class="sw-name">Illustrator</div></div>
+      <div class="sw-item"><div class="sw-icon">Ps</div><div class="sw-name">Photoshop</div></div>
+      <div class="sw-item"><div class="sw-icon">Id</div><div class="sw-name">InDesign</div></div>
+      <div class="sw-item"><div class="sw-icon">Cl</div><div class="sw-name">CLO 3D</div></div>
+      <div class="sw-item"><div class="sw-icon">Ms</div><div class="sw-name">MS Office</div></div>
+    </div>
+  </div>
+
+
+  <!-- EXPERIENCE -->
+  <div class="ex-block">
+    <div class="ex-hdr">// Experience</div>
+
+    <div class="ex-row">
+      <div class="ex-d"><div class="ex-yr">2020</div><div class="ex-per">2020–Present</div><div class="ex-ty">Freelance</div></div>
+      <div class="ex-c">
+        <h4>Freelance Architectural Designer — UK</h4>
+        <p>Rendering, spatial positioning, managing tasks, construction stages and procurement. Competition entries and development concepts. CAD drafting, Rhinoceros 3D and Revit modelling. Design concept development, strategic innovation and research. Trends and technological advancements. Developing personal style and methodology.</p>
+      </div>
+    </div>
+
+    <div class="ex-row">
+      <div class="ex-d"><div class="ex-yr">2022</div><div class="ex-per">Aug–Sep 2022</div><div class="ex-ty">Professional</div></div>
+      <div class="ex-c">
+        <h4>Architectural Assistant — Practice, RSA</h4>
+        <p>Spatial planning, Revit, building stages and building regulations. AutoCAD drafting and Revit modelling. One month mastering Revit with additional work on floor plans — my bathroom plan iteration was chosen. Rendering and the importance of views to capture spatial quality. Technical focus on correct joinery and details to maintain design quality.</p>
+      </div>
+    </div>
+
+    <div class="ex-row">
+      <div class="ex-d"><div class="ex-yr">2020</div><div class="ex-per">Jan 2020</div><div class="ex-ty">Professional</div></div>
+      <div class="ex-c">
+        <h4>Architectural Assistant — Practice, UK</h4>
+        <p>Rendering, material choice, design ideas, proposals and competition submissions. InDesign project proposals, SketchUp modelling. V-Ray to demonstrate overshadowing on nearby buildings. Feasibility studies and early construction stages. Environmental codes to prevent overshadowing using clay renders. Design concept development and the idea of telling a story when selling a project to clients.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="ex-block">
+    <div class="ex-hdr">// Education</div>
+
+    <div class="ex-row">
+      <div class="ex-d"><div class="ex-yr">2017</div><div class="ex-per">2017–2020</div><div class="ex-ty">Degree</div></div>
+      <div class="ex-c">
+        <h4>BSc Architecture &amp; Environmental Design — Part I RIBA ARB</h4>
+        <p>Three-year undergraduate programme covering design studio, environmental performance, structural principles, and professional practice. Final year thesis: Back to Basics — socioeconomic regeneration through sustainable, plant-based construction. Full dissertation, feasibility study, CFD analysis, and material study.</p>
+      </div>
+    </div>
+
+    <div class="ex-row">
+      <div class="ex-d"><div class="ex-yr">—</div><div class="ex-per">Self-directed</div><div class="ex-ty">Courses</div></div>
+      <div class="ex-c">
+        <h4>Additional Courses &amp; Certifications</h4>
+        <div class="ex-courses">
+          <div class="ex-course">Harvard CS50 — Introduction to Python</div>
+          <div class="ex-course">Parametric Design with Grasshopper — Beginner to Advanced</div>
+          <div class="ex-course">Rhino 3D — Beginner to Advanced</div>
+          <div class="ex-course">Form Finding with Kangaroo Physics / Grasshopper</div>
+          <div class="ex-course">Galapagos &amp; Biomorpher on Grasshopper — Al Bahr example</div>
+          <div class="ex-course">Design Thinking for Sustainable Development — ETH Zürich short course</div>
+          <div class="ex-course">Landscape Architecture — short course workbook</div>
+          <div class="ex-course">UX &amp; UI Web Design — self-taught</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div class="ex-block" style="border-bottom:0.5px solid var(--rule)">
+    <div class="ex-hdr">// Achievements</div>
+    <div class="ex-row">
+      <div class="ex-d"><div class="ex-yr">—</div><div class="ex-per">Selected</div><div class="ex-ty">Notable</div></div>
+      <div class="ex-c">
+        <h4>Selected Achievements</h4>
+        <div class="ex-courses">
+          <div class="ex-course">Cape Argus Cycle Race — completed for charity</div>
+          <div class="ex-course">Drawings published — Survey of London illustrated essay <a href="https://surveyoflondon.org/map/user/232/content/" target="_blank" rel="noopener" style="color:var(--lime);text-decoration:none">↗</a></div>
+          <div class="ex-course">RIBA Part I — BSc Architecture and Environmental Design, Part I RIBA ARB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-top">
+      <div><div class="ft-brand">Sebastian Victor Dawber</div><div class="ft-sub">// Part I Environmental Architect</div></div>
+      <div class="ft-nav"><button class="ft-lk" onclick="go('work')">Work</button><button class="ft-lk" onclick="go('contact')">Contact</button></div>
+      <div class="ft-contact">
+        <div><div class="ft-cl">// Email</div><div class="ft-cv"><a href="mailto:svdawber@outlook.com">svdawber@outlook.com</a></div></div>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot"><span class="ft-copy">© 2026 Sebastian Victor Dawber</span><div class="ft-coords"><span>LAT 51.5074°N</span><span>LNG 0.1278°W</span></div></div>
+  </footer>
+
+</div>
+
+<!-- ══════════════════════════════════
+     CONTACT
+══════════════════════════════════ -->
+<div class="page" id="page-contact">
+
+  <div class="ct-layout">
+    <div class="ct-l">
+      <div>
+        <p class="ct-ey">// Get in touch</p>
+        <h2 class="ct-h">Let's build<br>something<br><em>real.</em></h2>
+        <p class="ct-body">Available for Part I assistant positions, architectural technician roles, and freelance commissions in environmental analysis and architectural visualisation.</p>
+        <div class="ct-dets">
+          <div><div class="ctd-l">Email</div><div class="ctd-v"><a href="mailto:svdawber@outlook.com">svdawber@outlook.com</a></div></div>
+          <div><div class="ctd-l">Location</div><div class="ctd-v">United Kingdom</div></div>
+          <div><div class="ctd-l">Availability</div><div class="ctd-v avail">Open to opportunities</div></div>
+          <div><div class="ctd-l">Response</div><div class="ctd-v">Within 48 hours</div></div>
+        </div>
+      </div>
+      <div class="ct-img ph" data-label="Project image — TrEES orthographic"></div>
+    </div>
+    <div class="ct-r">
+      <p class="ct-rl">Send a message</p>
+      <form onsubmit="handleForm(event)">
+        <div class="fg"><label>Your name</label><input type="text" name="name" placeholder="Full name" required></div>
+        <div class="fg"><label>Email address</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="fg"><label>Organisation</label><input type="text" name="organisation" placeholder="Practice or company (optional)"></div>
+        <div class="fg"><label>Enquiry type</label>
+          <select name="enquiry_type">
+            <option>Employment opportunity</option>
+            <option>Freelance commission</option>
+            <option>Environmental analysis</option>
+            <option>Collaboration</option>
+            <option>General enquiry</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell me about the project or role..." required></textarea></div>
+        <button type="submit" class="fsub">// Transmit message</button>
+      </form>
+      <div class="fok" id="fok">Transmission received.<br>I will be in touch within 48 hours.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════
+     SCRIPT
+══════════════════════════════════ -->
+<script>
+const PROJS=[
+  {id:'trees',name:'TrEES',sub:'Off-Grid Treehouse Housing',
+   year:'2025',type:'Competition',loc:'Urban UK',
+   tags:['competition','sustainability'],
+   tools:['Python','Rhinoceros 3D','D5 Render','Grasshopper'],
+   brief:'Off-grid living treehouse for two people placed in parks to reduce the effect of pollution from cities.',
+   desc:'Python was used to extract real PM2.5 pollution data from the DEFRA monitoring network and identify precise vertical zones above which air quality improved beyond safe thresholds. The dwelling\'s form, orientation, and height all emerged from this dataset — the design responds to its data, not the other way around.\n\nThe result is a fully off-grid two-bed home generating its own energy via photovoltaics, capturing and filtering rainwater, and managing grey and black water on-site. No connection to external infrastructure required.',
+   env:[['PM2.5 Threshold','12µg/m³'],['Canopy Clearance','+8.4m'],['Solar Orientation','182° S-facing'],['Energy','100% off-grid']],
+   hero:'image/1_trees_cover.jpg',
+   imgs:['image/1_trees_cover.jpg','Projects/1_TREEs/R1.jpg','Projects/1_TREEs/R2.jpg','Projects/1_TREEs/R3.jpg','Projects/1_TREEs/Poster-01.jpg','Projects/1_TREEs/Perspective%20Final%20Shot.jpg','Projects/1_TREEs/Shoulder%20top1.jpg','Projects/1_TREEs/Supportsnap%201.jpg','Projects/1_TREEs/Supportsnap%204.jpg','Projects/1_TREEs/Supportsnap3.jpg','Projects/1_TREEs/Supportsnap6.jpg','Projects/1_TREEs/snap%20detail.jpg','Projects/1_TREEs/r4.jpg','Projects/1_TREEs/tree24%20land%20mapping%20analysis%20v002.jpg','Projects/1_TREEs/tree24%20plant%20theory%20work-01.jpg','Projects/1_TREEs/Image(1).jpg','Projects/1_TREEs/Image(4).jpg','Projects/1_TREEs/1000010824%20(1).jpg'],
+   nextId:'b2b',nextName:'Back to Basics',nextMetric:'Energy reduction — 42% below baseline'},
+  {id:'b2b',name:'Back to Basics',sub:'Final Year Thesis — Socioeconomic Regeneration',
+   year:'2019–2020',type:'Academic',loc:'UK (conceptual)',
+   tags:['academic','sustainability'],
+   tools:['AutoCAD','Illustrator','Photoshop','IES VE'],
+   brief:'Basic way of living made from plants. Grow, work, produce and live onsite.',
+   desc:'The thesis explored how a single architectural intervention — mixed-use housing, employment, and community space — could catalyse socioeconomic regeneration in a deprived urban area, while being constructed entirely from renewable plant-based materials.\n\nEnvironmental analysis including shadow studies, CFD wind testing, and solar equinox studies informed every design stage. The material study tested breathable wall constructions and biobased structural systems including CLT, hempcrete, and mycelium panels.',
+   env:[['Energy Reduction','42% vs baseline'],['Wall U-value','0.18 W/m²K'],['Analysis','IES VE + CFD'],['Material','Plant-based CLT']],
+   hero:'image/2_b2b_cover.jpg',
+   imgs:['image/2_b2b_cover.jpg','Projects/2_B2B/coverimage_6.jpg','Projects/2_B2B/Startegy%20axo.jpg','Projects/2_B2B/7.jpg','Projects/2_B2B/8.jpg','Projects/2_B2B/9.jpg','Projects/2_B2B/plant%20structure.jpg','Projects/2_B2B/wall%20startegies.jpg','Projects/2_B2B/mix%20uses.jpg','Projects/2_B2B/Technical%20dimensions%20v005.jpg'],
+   nextId:'offgrid',nextName:'Off-Grid Home',nextMetric:'37m² — U-value 0.15 W/m²K'},
+  {id:'offgrid',name:'Off-Grid Home',sub:'Competition Entry — 37sqm Single Dwelling',
+   year:'2023',type:'Competition',loc:'UK',
+   tags:['competition','sustainability'],
+   tools:['AutoCAD','Rhinoceros 3D','D5 Render','IES VE'],
+   brief:'Housing unit completely off grid — provides its own services for living.',
+   desc:'Taking the modular housing language from the thesis and adapting it for a single-person 37sqm dwelling. The compact footprint demanded maximum efficiency — every square metre analysed for daylighting, thermal performance, and spatial quality.\n\nIES VE thermal modelling drove the envelope specification. The result achieves U-value 0.15 W/m²K across the primary envelope while maintaining generous ceiling heights and natural cross-ventilation.',
+   env:[['Floor Area','37m²'],['U-value','0.15 W/m²K'],['Ventilation','Natural cross'],['Analysis','IES VE']],
+   hero:'image/3_offgrid_cover.jpg',
+   imgs:['image/3_offgrid_cover.jpg','Projects/3_Offgrid/bathroom2.jpg','Projects/3_Offgrid/coverimage_top%20view.jpg','Projects/3_Offgrid/Bedroom.jpg','Projects/3_Offgrid/exterior%20side.jpg','Projects/3_Offgrid/living%20room.jpg','Projects/3_Offgrid/D5_Image_20230215_032422.jpg','Projects/3_Offgrid/D5_Image_20230314_063250.jpg','Projects/3_Offgrid/D5_Image_20230314_063554.jpg','Projects/3_Offgrid/Site.jpg','Projects/3_Offgrid/network%20map.jpg','Projects/3_Offgrid/Final%20back%20to%20basics%20drawings.jpg'],
+   nextId:'coliving',nextName:'Coliving',nextMetric:'7-day live brief — single submission'},
+  {id:'coliving',name:'Coliving',sub:'Live Internship Brief — 7 Days',
+   year:'2023',type:'Professional',loc:'UK',
+   tags:['professional'],
+   tools:['AutoCAD','Rhinoceros 3D','D5 Render'],
+   brief:'Work complex for artisans — co-living and making space designed in 7 days.',
+   desc:'Introduction work for work experience. The project explored how a co-working environment for creative professionals could feel collegiate rather than corporate, using material warmth and spatial hierarchy to create distinct zones for focused work, collaboration, and informal interaction.\n\nCompleted and submitted within the 7-day window. The proposal demonstrated coherent architectural concept, technical drawings, and rendered visualisations under real professional time pressure.',
+   env:[['Deadline','7 days'],['Submission','1 package'],['Client','EPA Studio'],['Type','Co-living']],
+   hero:'image/4_coliving_cover.jpg',
+   imgs:['image/4_coliving_cover.jpg','Projects/4_co_living/1.jpg','Projects/4_co_living/6.jpg','Projects/4_co_living/coverimage_7.jpg','Projects/4_co_living/3.jpg','Projects/4_co_living/Axonometric.jpg','Projects/4_co_living/4%20people%20edit.jpg','Projects/4_co_living/Design%20developement.jpg','Projects/4_co_living/Micro%20analysis.jpg','Projects/4_co_living/macro%20analysis.jpg','Projects/4_co_living/Precedents.jpg'],
+   nextId:'landscape',nextName:'Landscape',nextMetric:'Site survey — landscape analysis'},
+  {id:'landscape',name:'Landscape',sub:'Landscape Introduction Course',
+   year:'2022–2023',type:'Education',loc:'UK',
+   tags:['academic'],
+   tools:['Rhinoceros 3D','AutoCAD','Illustrator','InDesign'],
+   brief:'Landscape introduction course highlighting key learning outcomes from Creative Terrain.',
+   desc:'This course highlights key learning outcomes from the Creative Terrain course that introduced Landscape Architecture. Looking at various site survey techniques and key aspects for landscape analysis.\n\nThe work covers site observation, model-making from terrain data, and environmental assessment methodologies applied to real landscape contexts.',
+   env:[['Focus','Site survey'],['Output','Terrain model'],['Tools','Rhino + AutoCAD'],['Method','Creative Terrain']],
+   hero:'image/5_landscape_cover.pdf',
+   imgs:['Projects/5_Landscape/Model_CloseUp_Edit_01.jpg','Projects/5_Landscape/Model_Overall_Edit_01.jpg','Projects/5_Landscape/Model_CloseUp_Edit_02.jpg','Projects/5_Landscape/Model_CloseUp_Edit_03.jpeg','Projects/5_Landscape/Model_Overall_Edit_02.jpg','Projects/5_Landscape/DSC00009.JPG','Projects/5_Landscape/DSC00025.JPG','Projects/5_Landscape/DSC09534.JPG','Projects/5_Landscape/DSC09539.JPG','Projects/5_Landscape/DSC09588.JPG','Projects/5_Landscape/DSC09689.JPG','Projects/5_Landscape/DSC09701.JPG','Projects/5_Landscape/DSC09711.JPG','Projects/5_Landscape/DSC09719.JPG','Projects/5_Landscape/DSC09725.JPG','Projects/5_Landscape/DSC09786.JPG','Projects/5_Landscape/DSC09980.JPG','Projects/5_Landscape/DSC09986.JPG','Projects/5_Landscape/DSC09994.JPG','Projects/5_Landscape/IMG_0535.JPG','Projects/5_Landscape/IMG_0545.JPG','Projects/5_Landscape/IMG_0619.JPG','Projects/5_Landscape/IMG_0643.JPG'],
+   nextId:'wy',nextName:'WY',nextMetric:'Temporary structure — RIBA stage 1–5'},
+  {id:'wy',name:'WY',sub:'Temporary Spa — Goods & Gatherings',
+   year:'2025',type:'Professional',loc:'UK',
+   tags:['professional'],
+   tools:['Rhinoceros 3D','Grasshopper','AutoCAD'],
+   brief:'Temporary spa for goods and gatherings — a real-life project following RIBA stage 1–5.',
+   desc:'SPA design for a temporary space to sell goods and host gatherings. This project examines the steps and process required to designing then building a real-life project using RIBA stage 1–5 guidelines to be submitted on completion.\n\nWind testing, sun path analysis, and environmental performance testing informed the structural and spatial strategy for the temporary pavilion.',
+   env:[['Stage','RIBA 1–5'],['Type','Temporary pavilion'],['Analysis','Wind + solar'],['Status','In progress']],
+   hero:'image/6_wy_cover.jpg',
+   imgs:['image/6_wy_cover.jpg','Projects/6_WY/Wy%20Massing%20option%20-%201.jpg','Projects/6_WY/Wy%20massing%20option%20-%202.jpg','Projects/6_WY/coverimage_smoke%20house%20001.jpg'],
+   nextId:'together',nextName:'Together',nextMetric:'Artist residency — timber + concrete'},
+  {id:'together',name:'Together',sub:'Artist Residency — Coalesce',
+   year:'2017–2018',type:'Academic',loc:'London · Year 1 Studio',
+   tags:['academic'],
+   tools:['Clay moulds','Vectorworks','Model making'],
+   brief:'Artist residency using shadow testing mixing timber and concrete — form found through material contrast.',
+   desc:'The aim of this design is to produce a space that is easy to navigate through, whilst still giving space to a number of elements. Combining materials that are opposite in nature into one space to show the unification of timber and concrete and how they can coexist.\n\nLighting became a crucial part of the design. Various window configurations were tested to bring sufficient natural light into spaces that don\'t receive direct sun. Techniques including top window lighting and strategic window placement resolved the brief.',
+   env:[['Year','Year 1 Studio'],['Materials','Timber + concrete'],['Method','Shadow testing'],['Output','Physical model']],
+   hero:'image/7_together_cover.jpg',
+   imgs:['image/7_together_cover.jpg','Projects/7_Together/coverimage_Photo%2009-03-2018%2C%2015%2004%2031.jpg','Projects/7_Together/IMG_6960.jpg','Projects/7_Together/IMG_6961.jpg','Projects/7_Together/IMG_6962.jpg','Projects/7_Together/IMG_6960%202.jpg','Projects/7_Together/IMG_6961%202.jpg','Projects/7_Together/IMG_6962%202.jpg','Projects/7_Together/Photo%2019-03-2018%2C%2012%2058%2022.jpg','Projects/7_Together/Photo%2028-03-2018%2C%2012%2058%2019.jpg','Projects/7_Together/Photo%2005-03-2018%2C%2016%2036%2055(1).jpg','Projects/7_Together/Photo%2009-03-2018%2C%2015%2004%2041(1).jpg','Projects/7_Together/Photo%2009-03-2018%2C%2015%2013%2022(1).jpg','Projects/7_Together/Scan%201.jpeg','Projects/7_Together/Scan%202.jpeg','Projects/7_Together/Scan%203.jpeg','Projects/7_Together/Scan%204.jpeg','Projects/7_Together/Scan%205.jpeg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2015.57.27.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2015.57.37.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2016.08.54.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2016.09.03.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2016.09.13.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2016.09.20.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2016.09.32.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2016.09.46.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2016.09.56.jpg','Projects/7_Together/Screen%20Shot%202022-11-21%20at%2016.10.03.jpg'],
+   nextId:'yingyang',nextName:'Ying Yang',nextMetric:'Daylight factor — 2.8% achieved'},
+  {id:'yingyang',name:'Ying Yang',sub:'Artist Housing — Passive Light Strategy',
+   year:'2018–2019',type:'Academic',loc:'Year 2 Studio',
+   tags:['academic','sustainability'],
+   tools:['Rhinoceros 3D','Ladybug','Illustrator','AutoCAD'],
+   brief:'Housing complex redesigned by daylight — light and shadow form the architecture.',
+   desc:'The design uses the opposition of light and dark as both concept and spatial logic. South-facing residential spaces are expressed in warm light concrete. The north-facing studio wing, where diffuse consistent light is optimal for creative work, is resolved in full glazing.\n\nFaçade analysis drove a modular balcony system producing varying protrusions based on daylight study — balconies double as a vertical urban farm, creating work and food for inhabitants. Ladybug analysis validated the passive strategy across all seasonal conditions.',
+   env:[['Daylight Factor','2.8% achieved'],['Strategy','Passive solar'],['Analysis','Ladybug + Rhino'],['Orientation','S/N split']],
+   hero:'image/8_yingyang_cover.pdf',
+   imgs:['Projects/8_Ying%20Yang/Cover%20Page.jpg','Projects/8_Ying%20Yang/all%20floors.jpg','Projects/8_Ying%20Yang/Journey%20through%20space%20002-01.jpg','Projects/8_Ying%20Yang/design%20developement_1_yingyang..jpg','Projects/8_Ying%20Yang/concept%20montage.jpg','Projects/8_Ying%20Yang/cover%20brief%20page.jpg','Projects/8_Ying%20Yang/systems%20page.jpg','Projects/8_Ying%20Yang/technical%20aspects-01.jpg','Projects/8_Ying%20Yang/Screen%20Shot%202022-11-21%20at%2016.15.25%20copy.jpg','Projects/8_Ying%20Yang/Screen%20Shot%202022-11-21%20at%2016.15.37.jpg','Projects/8_Ying%20Yang/Screen%20Shot%202022-11-21%20at%2016.15.47.jpg','Projects/8_Ying%20Yang/Screen%20Shot%202022-11-21%20at%2016.16.03.jpg'],
+   nextId:'schold',nextName:'Schold',nextMetric:'Adaptive structure — climate responsive'},
+  {id:'schold',name:'Schold',sub:'Temporary School — Adaptive Structure',
+   year:'2017–2018',type:'Academic',loc:'London · Year 2 Studio',
+   tags:['academic','sustainability'],
+   tools:['Rhinoceros 3D','Grasshopper','AutoCAD'],
+   brief:'Temporary school that adapts with time and environment — a climate-responsive modular system.',
+   desc:'Education space designed to be temporary and easy to assemble. A grid system designed specifically for these spaces offers support for the pillars that form the structure. Each pillar is placed in the various holes of the grid, then walls and rail systems are added on top.\n\nThe design responds to the changing environment with a number of different systems within that adapt to the needs of the day and changing climate conditions — addressing noise, daylight, wind, and occupancy simultaneously.',
+   env:[['Type','Temporary modular'],['Responsive','Noise + daylight + wind'],['System','Grid + pillar'],['Analysis','Environmental']],
+   hero:'image/9_schold_cover.pdf',
+   imgs:['Projects/9_schold/shadow-01.jpg','Projects/9_schold/spatial%20sequence-01.jpg','Projects/9_schold/SUN-01.jpg','Projects/9_schold/wind-01.jpg','Projects/9_schold/render%201%3B50.jpg','Projects/9_schold/1stAI%20%5BConverted%5D-01.jpg','Projects/9_schold/Screen%20Shot%202018-12-02%20at%2023.35.34.jpg','Projects/9_schold/Scan%201.jpeg','Projects/9_schold/Scan%201%202.jpeg','Projects/9_schold/Scan%201%203.jpeg','Projects/9_schold/Scan%202.jpeg','Projects/9_schold/Scan%202%202.jpeg','Projects/9_schold/Scan%203.jpeg','Projects/9_schold/Scan%203%202.jpeg','Projects/9_schold/Scan%203%203.jpeg','Projects/9_schold/Scan%204.jpeg','Projects/9_schold/Scan%204%202.jpeg','Projects/9_schold/Scan%205.jpeg','Projects/9_schold/Scan%206.jpeg'],
+   nextId:'trees',nextName:'TrEES',nextMetric:'PM2.5 12µg/m³ — 100% off-grid'},
+];
+
+// ── PDF COVER UTILITIES ───────────────────────────────────────
+function isPDF(s){return s&&s.toLowerCase().endsWith('.pdf');}
+
+function ensurePDFJS(cb){
+  if(window.pdfjsLib){cb();return;}
+  if(window._pdfJSLoading){(window._pdfJSCbs=window._pdfJSCbs||[]).push(cb);return;}
+  window._pdfJSLoading=true;window._pdfJSCbs=[cb];
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+  s.onload=()=>{
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    (window._pdfJSCbs||[]).forEach(f=>f());
+    window._pdfJSLoading=false;
+  };
+  document.head.appendChild(s);
+}
+
+function renderPDFCovers(){
+  document.querySelectorAll('img.pdf-cover[data-pdf]').forEach(img=>{
+    if(img.dataset.rendered) return;
+    img.dataset.rendered='1';
+    const url=img.dataset.pdf;
+    ensurePDFJS(()=>{
+      pdfjsLib.getDocument(url).promise
+        .then(pdf=>pdf.getPage(1))
+        .then(page=>{
+          const scale=2;
+          const vp=page.getViewport({scale});
+          const cvs=document.createElement('canvas');
+          cvs.width=vp.width;cvs.height=vp.height;
+          return page.render({canvasContext:cvs.getContext('2d'),viewport:vp}).promise
+            .then(()=>cvs.toDataURL('image/jpeg',0.88));
+        })
+        .then(dataUrl=>{img.src=dataUrl;})
+        .catch(err=>console.warn('PDF cover failed:',url,err));
+    });
+  });
+}
+
+// Returns an img/placeholder element for a project hero
+function heroEl(p,style){
+  if(!p.hero) return `<div class="pd-hbg ph ph-dk" data-label="${p.name}" style="position:absolute;inset:0"></div>`;
+  if(isPDF(p.hero)) return `<img class="pdf-cover" data-pdf="${p.hero}" alt="${p.name}" style="${style}">`;
+  return `<img src="${p.hero}" alt="${p.name}" style="${style}">`;
+}
+
+// Navigation
+const PAGES=['home','work','about','contact'];
+function go(id){
+  PAGES.forEach(p=>{
+    document.getElementById('page-'+p).classList.toggle('on',p===id);
+    const nl=document.getElementById('nl-'+p);
+    if(nl) nl.classList.toggle('on',p===id);
+  });
+  window.scrollTo(0,0);
+  if(id==='work'){renderList(PROJS);showList()}
+  if(id==='about') animSkills();
+  initFI();
+  const mob=document.getElementById('mob-menu');
+  if(mob) mob.remove();
+}
+
+// Ticker strip — built from PROJS, no project numbers shown
+(function(){
+  const track=document.getElementById('ticker-track');
+  if(!track) return;
+  [0,1].forEach(()=>{
+    PROJS.forEach(it=>{
+      const div=document.createElement('div');
+      div.className='ticker-item';
+      div.onclick=()=>openProj(it.id);
+      div.innerHTML=`
+        <span class="ticker-name">${it.name}</span>
+        <span class="ticker-type">${it.type}</span>
+        <span class="ticker-sep">◆</span>`;
+      track.appendChild(div);
+    });
+  });
+})();
+
+// Work list
+function renderList(list){
+  document.getElementById('plist').innerHTML=list.map(p=>`
+    <div class="pr" data-tags="${p.tags.join(',')}" onclick="openProj('${p.id}')">
+      <div class="pr-main">
+        <div class="pr-thumb">${heroEl(p,'width:100%;height:100%;object-fit:cover;display:block')}</div>
+        <div class="pr-info"><h3>${p.name}</h3><p>${p.sub}</p></div>
+      </div>
+      <div class="pr-meta">${p.year}<br>${p.loc}</div>
+      <div class="pr-type">${p.type}</div>
+      <div class="pr-arr">→</div>
+    </div>`).join('');
+  renderPDFCovers();
+}
+
+function fw(cat,btn){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const wr=document.getElementById('wr-section');
+  const fl=document.getElementById('flip-section');
+  if(cat==='flipbook'){
+    renderList([]);
+    if(wr) wr.style.display='none';
+    if(fl) fl.style.display='block';
+  } else if(cat==='writing'){
+    renderList([]);
+    if(wr) wr.style.display='block';
+    if(fl) fl.style.display='none';
+  } else {
+    renderList(cat==='all'?PROJS:PROJS.filter(p=>p.tags.includes(cat)));
+    if(wr) wr.style.display=cat==='all'?'block':'none';
+    if(fl) fl.style.display='none';
+  }
+}
+
+// ── FLIPBOOK ──────────────────────────────────────────────────
+(function(){
+  let pdfDoc=null, totalPages=0, spread=0, rendering=false;
+  // spread = index of left page (0-based). Left = spread, Right = spread+1
+  const SCALE=1.8;
+
+  function el(id){return document.getElementById(id)}
+
+  // Drag and drop
+  const drop=el('flip-drop');
+  if(drop){
+    drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag-over')});
+    drop.addEventListener('dragleave',()=>drop.classList.remove('drag-over'));
+    drop.addEventListener('drop',e=>{
+      e.preventDefault();drop.classList.remove('drag-over');
+      const f=e.dataTransfer.files[0];
+      if(f&&f.type==='application/pdf') loadFlipPDF(f);
+    });
+  }
+
+  // Report PDF URL map — relative paths work when served (Netlify etc), not file://
+  var DOC_REPORT_URLS={
+    'thesis':          'reports/Hempcrete_Dissertation..pdf',
+    'strategic-report':'reports/strategic-report.pdf',
+    'technical-report':'reports/technical-report.pdf',
+    'shadow-report':   'reports/BSC%20AED_DS%203A_Sebastian%20Dawber%20moudle2%20(1).pdf',
+    'competition':     'reports/Back%20to%20basics%20off%20gird%20compettion_compressed.pdf',
+    'portfolio':       'reports/Diary.pdf'
+  };
+
+  window.loadFlipFromURL=function(url){
+    if(!url) return;
+    el('flip-upload-zone').style.display='none';
+    el('flip-loading').style.display='flex';
+    el('flip-stage').style.display='none';
+    el('flip-load-txt').textContent='Loading document…';
+    el('flip-sub').textContent=decodeURIComponent(url.split('/').pop());
+    // Use ensurePDFJS + getDocument(url) — lets PDF.js handle the network request
+    // directly, which is more reliable than manual fetch → arrayBuffer
+    ensurePDFJS(function(){
+      window.pdfjsLib.getDocument(url).promise
+        .then(function(pdf){
+          pdfDoc=pdf;
+          totalPages=pdf.numPages;
+          spread=0;
+          el('flip-loading').style.display='none';
+          el('flip-stage').style.display='flex';
+          var rb=el('flip-reset-btn');
+          if(rb) rb.style.display='flex';
+          renderSpread();
+        })
+        .catch(function(err){
+          el('flip-loading').style.display='none';
+          el('flip-upload-zone').style.display='flex';
+          el('flip-load-txt').textContent='Loading PDF…';
+          var drop=el('flip-drop');
+          if(drop){
+            var errDiv=drop.querySelector('.flip-fetch-err');
+            if(!errDiv){
+              errDiv=document.createElement('p');
+              errDiv.className='flip-fetch-err';
+              errDiv.style.cssText='margin-top:1rem;font-size:0.8rem;color:#c03030;text-align:center';
+              drop.appendChild(errDiv);
+            }
+            errDiv.innerHTML='Could not load PDF ('+(err&&err.message?err.message:'check file exists')+').'
+              +' <a href="'+url+'" target="_blank" style="color:var(--accent);text-decoration:underline">Open in new tab →</a>';
+          }
+        });
+    });
+  };
+
+  window.loadFlipPDF=function(file){
+    if(!file) return;
+    el('flip-upload-zone').style.display='none';
+    el('flip-loading').style.display='flex';
+    el('flip-stage').style.display='none';
+    el('flip-sub').textContent=file.name;
+    const reader=new FileReader();
+    reader.onload=function(e){
+      const data=new Uint8Array(e.target.result);
+      // Load via pdf.js CDN
+      if(!window.pdfjsLib){
+        const s=document.createElement('script');
+        s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+        s.onload=()=>{
+          window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          openPDF(data);
+        };
+        document.head.appendChild(s);
+      } else {
+        openPDF(data);
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  };
+
+  function openPDF(data){
+    window.pdfjsLib.getDocument({data}).promise.then(pdf=>{
+      pdfDoc=pdf;
+      totalPages=pdf.numPages;
+      spread=0;
+      el('flip-loading').style.display='none';
+      el('flip-stage').style.display='flex';
+      const rb=el('flip-reset-btn');
+      if(rb) rb.style.display='flex';
+      renderSpread();
+    }).catch(err=>{
+      el('flip-loading').style.display='none';
+      el('flip-upload-zone').style.display='flex';
+      alert('Could not read PDF: '+err.message);
+    });
+  }
+
+  function renderSpread(){
+    if(!pdfDoc||rendering) return;
+    rendering=true;
+    const lPage=spread+1;
+    const rPage=spread+2;
+    updateCounter();
+    updateProgress();
+    const tasks=[];
+    if(lPage<=totalPages) tasks.push(renderPage(lPage,'flip-cl','flip-pnl'));
+    else clearCanvas('flip-cl','flip-pnl');
+    if(rPage<=totalPages) tasks.push(renderPage(rPage,'flip-cr','flip-pnr'));
+    else clearCanvas('flip-cr','flip-pnr');
+    Promise.all(tasks).then(()=>{rendering=false}).catch(()=>{rendering=false});
+  }
+
+  function renderPage(pageNum,canvasId,numId){
+    return pdfDoc.getPage(pageNum).then(page=>{
+      const vp=page.getViewport({scale:SCALE});
+      const canvas=el(canvasId);
+      const ctx=canvas.getContext('2d');
+      canvas.width=vp.width;
+      canvas.height=vp.height;
+      el(numId).textContent=pageNum;
+      return page.render({canvasContext:ctx,viewport:vp}).promise;
+    });
+  }
+
+  function clearCanvas(canvasId,numId){
+    const c=el(canvasId);
+    if(c){const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);}
+    const n=el(numId);if(n) n.textContent='';
+  }
+
+  function updateCounter(){
+    const lp=spread+1, rp=Math.min(spread+2,totalPages);
+    el('flip-pg-count').textContent=totalPages>0
+      ? (lp===rp?`${lp} / ${totalPages}`:`${lp}–${rp} / ${totalPages}`)
+      :'';
+  }
+
+  function updateProgress(){
+    const pct=totalPages>0?Math.round(((spread+2)/totalPages)*100):0;
+    const pf=el('flip-pf');
+    if(pf) pf.style.width=Math.min(pct,100)+'%';
+  }
+
+  /* ── 3D page-curl flip ── */
+  let flipping=false;
+
+  window.flipNav=function(dir){
+    if(!pdfDoc||flipping) return;
+    const ns=spread+(dir*2);
+    if(ns<0||ns>=totalPages) return;
+    animatedFlip(dir,function(){
+      spread=ns;
+      rendering=false;
+      renderSpread();
+    });
+  };
+
+  function animatedFlip(dir,callback){
+    flipping=true;
+    const fwd=dir>0;
+    const tp=el('flip-page-turn');
+    const srcCanvas=el(fwd?'flip-cr':'flip-cl');
+
+    /* — front face: copy current page canvas — */
+    const fc=el('flip-ct-front');
+    fc.width=srcCanvas.width||595;
+    fc.height=srcCanvas.height||842;
+    if(srcCanvas.width){
+      fc.getContext('2d').drawImage(srcCanvas,0,0);
+    }
+
+    /* — back face: pre-render the incoming page — */
+    const bc=el('flip-ct-back');
+    const nextSpread=spread+(dir*2);
+    const backPageNum=fwd?(nextSpread+1):(nextSpread+2);
+
+    function doFlip(){
+      /* show cast shadow on opposing static leaf */
+      const castId=fwd?'flip-cast-l':'flip-cast-r';
+      const cast=el(castId);
+      if(cast) cast.classList.add('on');
+
+      tp.className='flip-page-turn '+(fwd?'flip-fwd':'flip-bwd');
+      tp.style.display='block';
+
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          tp.classList.add(fwd?'flipping-fwd':'flipping-bwd');
+
+          /* update static canvases at midpoint (hidden under turning page) */
+          setTimeout(function(){
+            spread=nextSpread;
+            renderSpread();
+          },320);
+
+          /* clean up after animation */
+          setTimeout(function(){
+            tp.style.display='none';
+            tp.className='flip-page-turn';
+            if(cast) cast.classList.remove('on');
+            flipping=false;
+            callback&&callback();
+          },680);
+        });
+      });
+    }
+
+    /* pre-render back face if page exists */
+    if(backPageNum>=1&&backPageNum<=totalPages&&pdfDoc&&pdfDoc.getPage){
+      pdfDoc.getPage(backPageNum).then(function(page){
+        var vp=page.getViewport({scale:SCALE});
+        bc.width=vp.width; bc.height=vp.height;
+        return page.render({canvasContext:bc.getContext('2d'),viewport:vp}).promise;
+      }).then(doFlip).catch(doFlip);
+    } else {
+      bc.width=fc.width; bc.height=fc.height;
+      var bctx=bc.getContext('2d');
+      bctx.fillStyle='#F5F0E6';
+      bctx.fillRect(0,0,bc.width,bc.height);
+      doFlip();
+    }
+  }
+
+  window.flipReset=function(){
+    pdfDoc=null;totalPages=0;spread=0;
+    el('flip-stage').style.display='none';
+    el('flip-upload-zone').style.display='flex';
+    el('flip-pg-count').textContent='';
+    el('flip-sub').textContent='Upload a PDF — rendered locally, nothing sent anywhere';
+    const rb=el('flip-reset-btn');if(rb) rb.style.display='none';
+    const fi=el('flip-file');if(fi) fi.value='';
+  };
+
+  window.flipFS=function(){
+    const el2=el('flip-stage');
+    if(!el2) return;
+    if(!document.fullscreenElement) el2.requestFullscreen&&el2.requestFullscreen();
+    else document.exitFullscreen&&document.exitFullscreen();
+  };
+
+  // Demo mode — placeholder pages
+  window.loadFlipDemo=function(){
+    el('flip-upload-zone').style.display='none';
+    el('flip-loading').style.display='flex';
+    el('flip-load-txt').textContent='Building demo pages…';
+    setTimeout(()=>{
+      // Create synthetic pdf-like object with canvas pages
+      const DEMO_PAGES=8;
+      const canvases=[];
+      for(let i=0;i<DEMO_PAGES;i++){
+        const c=document.createElement('canvas');
+        c.width=595;c.height=842;
+        const ctx=c.getContext('2d');
+        // Page bg
+        ctx.fillStyle=i===0?'#0D1B2E':'#F5F0E6';
+        ctx.fillRect(0,0,595,842);
+        // Grid
+        ctx.strokeStyle=i===0?'rgba(245,240,230,0.04)':'rgba(13,27,46,0.06)';
+        ctx.lineWidth=0.5;
+        for(let x=0;x<595;x+=30){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,842);ctx.stroke()}
+        for(let y=0;y<842;y+=30){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(595,y);ctx.stroke()}
+        // Content
+        ctx.fillStyle=i===0?'#E8DCC8':'#0D1B2E';
+        if(i===0){
+          ctx.font='300 72px serif';
+          ctx.fillText('SVD',48,200);
+          ctx.font='300 22px serif';
+          ctx.fillStyle='rgba(232,220,200,0.55)';
+          ctx.fillText('Sebastian Victor Dawber',48,260);
+          ctx.font='400 11px monospace';
+          ctx.fillStyle='rgba(232,220,200,0.3)';
+          ctx.fillText('ARCHITECTURE + ENVIRONMENTAL DESIGN',48,310);
+          ctx.fillText('PORTFOLIO 2026',48,340);
+        } else {
+          ctx.font='300 32px serif';
+          ctx.fillText(`0${i} — Project`,48,120);
+          ctx.font='400 11px monospace';
+          ctx.fillStyle='#4A6880';
+          ctx.fillText(`IMAGE PLACEHOLDER — Page ${i+1}`,48,180);
+          // Placeholder box
+          ctx.strokeStyle='#8AA4B8';ctx.lineWidth=1;
+          ctx.strokeRect(48,200,500,380);
+          ctx.fillStyle='#EAE4D8';
+          ctx.fillRect(49,201,499,379);
+          ctx.fillStyle='#8AA4B8';
+          ctx.font='400 12px monospace';
+          ctx.fillText('[ Architecture render / drawing ]',200,395);
+        }
+        canvases.push(c);
+      }
+      // Wrap in mock pdfDoc
+      pdfDoc={
+        numPages:DEMO_PAGES,
+        getPage:(n)=>Promise.resolve({
+          getViewport:({scale})=>({width:595*scale,height:842*scale}),
+          render:({canvasContext,viewport})=>{
+            const src=canvases[n-1];
+            canvasContext.drawImage(src,0,0,viewport.width,viewport.height);
+            return {promise:Promise.resolve()};
+          }
+        })
+      };
+      totalPages=DEMO_PAGES;spread=0;
+      el('flip-loading').style.display='none';
+      el('flip-stage').style.display='flex';
+      el('flip-sub').textContent='Demo mode — 8 placeholder pages';
+      const rb=el('flip-reset-btn');if(rb) rb.style.display='flex';
+      renderSpread();
+    },600);
+  };
+
+  /* ════════════════════════════════════════
+     PASSWORD GATE
+     ════════════════════════════════════════
+     Default password: portfolio2026
+     To change: in browser console run —
+       sha256('yournewpassword').then(h => console.log(h))
+     then paste the result as the hash below.
+  ════════════════════════════════════════ */
+  var DOC_PASSWORDS={
+    'thesis':          '9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b',
+    'strategic-report':'9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b',
+    'technical-report':'9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b',
+    'shadow-report':   '9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b',
+    'competition':     '9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b',
+    'portfolio':       '9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b'
+  };
+  var SESSION_KEY='svd_doc_unlock';
+  var pwDocId=null;
+  var pwCallback=null;
+
+  function sha256(str){
+    return crypto.subtle.digest('SHA-256',new TextEncoder().encode(str))
+      .then(function(buf){
+        return Array.from(new Uint8Array(buf))
+          .map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+      });
+  }
+
+  function isUnlocked(docId){
+    try{
+      return !!(JSON.parse(sessionStorage.getItem(SESSION_KEY)||'{}')[docId]);
+    }catch(e){return false}
+  }
+
+  function setUnlocked(docId){
+    try{
+      var u=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'{}');
+      u[docId]=true;
+      sessionStorage.setItem(SESSION_KEY,JSON.stringify(u));
+    }catch(e){}
+  }
+
+  window.openWrCard=function(card){
+    var docId=card.getAttribute('data-doc-id');
+    var locked=card.classList.contains('locked');
+    if(locked&&!isUnlocked(docId)){
+      /* show password modal */
+      pwDocId=docId;
+      pwCallback=function(){
+        /* unlock visual */
+        card.classList.remove('locked');
+        var badge=card.querySelector('.wr-card-lock-badge');
+        if(badge) badge.textContent='// Unlocked';
+        /* navigate to flipbook and load PDF */
+        openFlipbook(DOC_REPORT_URLS[docId]||null);
+      };
+      var titles={
+        'thesis':          'Back to Basics — Dissertation',
+        'strategic-report':'Strategic Report',
+        'technical-report':'Technical Report',
+        'shadow-report':   'Shadow & Daylight Analysis Report',
+        'competition':     'Back to Basics — Competition Submission',
+        'portfolio':       'Academic & Professional Portfolio'
+      };
+      var subs={
+        'thesis':          'Academic thesis document · Restricted access',
+        'strategic-report':'Strategic analysis report · Restricted access',
+        'technical-report':'Technical documentation report · Restricted access',
+        'shadow-report':   'Professional planning document · Restricted access',
+        'competition':     'Competition submission · Restricted access',
+        'portfolio':       'Full portfolio PDF · Restricted access'
+      };
+      var titleEl=el('pw-title');
+      var subEl=el('pw-sub');
+      if(titleEl) titleEl.textContent=titles[docId]||'Enter password';
+      if(subEl)   subEl.textContent  =subs[docId]||'Restricted document';
+      el('pw-input').value='';
+      el('pw-error').classList.remove('on');
+      el('pw-overlay').classList.add('on');
+      setTimeout(function(){el('pw-input').focus()},120);
+    } else {
+      openFlipbook(DOC_REPORT_URLS[docId]||null);
+    }
+  };
+
+  window.submitPW=function(){
+    var val=el('pw-input').value;
+    if(!val) return;
+    sha256(val).then(function(hash){
+      var expected=DOC_PASSWORDS[pwDocId];
+      if(!expected||hash===expected){
+        setUnlocked(pwDocId);
+        closePW();
+        pwCallback&&pwCallback();
+        pwCallback=null;
+      } else {
+        var box=el('pw-box');
+        box.classList.add('shaking');
+        setTimeout(function(){box.classList.remove('shaking')},400);
+        el('pw-error').classList.add('on');
+        el('pw-input').value='';
+        el('pw-input').focus();
+      }
+    });
+  };
+
+  window.closePW=function(){
+    el('pw-overlay').classList.remove('on');
+    pwDocId=null;
+  };
+
+  /* keyboard nav on flipbook */
+  document.addEventListener('keydown',e=>{
+    if(!document.getElementById('flip-section')||document.getElementById('flip-section').style.display==='none') return;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown') flipNav(1);
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp') flipNav(-1);
+    if(e.key==='Escape') closePW();
+  });
+
+  // Touch/swipe on book
+  let tx=0;
+  const stage=el('flip-stage');
+  if(stage){
+    stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+    stage.addEventListener('touchend',e=>{
+      const dx=e.changedTouches[0].clientX-tx;
+      if(Math.abs(dx)>60) flipNav(dx<0?1:-1);
+    });
+  }
+})();
+
+function showList(){
+  document.getElementById('wlv').style.display='block';
+  const wr=document.getElementById('wr-section');
+  if(wr) wr.style.display='block';
+  const fl=document.getElementById('flip-section');
+  if(fl) fl.style.display='none';
+  const wd=document.getElementById('wd');
+  wd.classList.remove('on');wd.innerHTML='';
+}
+
+// Navigate to work page, show flipbook, and optionally fetch+load a PDF by URL
+function openFlipbook(url){
+  // Switch to work page
+  go('work');
+
+  // flip-section is a child of #wlv — never hide wlv or flip-section disappears too.
+  // Mirror what fw('flipbook') does: empty the project list, hide wr-section, show flip-section.
+  renderList([]);
+  var fl=document.getElementById('flip-section');
+  var wr=document.getElementById('wr-section');
+  var wd=document.getElementById('wd');
+  if(wr) wr.style.display='none';
+  if(wd){wd.classList.remove('on');wd.innerHTML='';}
+  if(fl) fl.style.display='block';
+
+  // Highlight Portfolio PDF filter button
+  document.querySelectorAll('.fb').forEach(function(b){b.classList.remove('on');});
+  var flipBtn=document.querySelector('.fb-flip');
+  if(flipBtn) flipBtn.classList.add('on');
+
+  if(url) window.loadFlipFromURL(url);
+}
+
+// Project detail
+let lbImgs=[],lbIdx=0;
+function openProj(id){
+  const p=PROJS.find(x=>x.id===id);
+  if(!p) return;
+  go('work');
+  document.getElementById('wlv').style.display='none';
+  const imgs=p.imgs||[];
+  function gi(src,alt){return `<img src="${src}" alt="${alt}" loading="lazy" style="width:100%;height:auto;display:block">`;}
+  const gallery=imgs.length
+    ? imgs.map((src,idx)=>{
+        const full=(idx%3===2);
+        return `<div class="pd-gi${full?' full':''}">${gi(src,p.name)}</div>`;
+      }).join('')
+    : `<div class="pd-gi full ph" data-label="${p.name}"></div>`;
+  const envG=p.env.map(([l,v])=>`<div class="pd-ec"><div class="pd-el">${l}</div><div class="pd-ev">${v}</div></div>`).join('');
+  const wd=document.getElementById('wd');
+  wd.innerHTML=`
+    <div class="status" style="border-top:0.5px solid var(--rule)">
+      <div class="si"><span class="sdot"></span><span class="sl">Type</span><span class="sv">${p.type.toUpperCase()}</span></div>
+      <div class="si"><span class="sl">Year</span><span class="sv">${p.year}</span></div>
+      <div class="si"><span class="sl">Location</span><span class="sv">${p.loc.toUpperCase()}</span></div>
+      <div class="si"><span class="sl">Tools</span><span class="sv">${p.tools.join(' · ')}</span></div>
+    </div>
+    <button class="back" onclick="showList()">← Back to all work</button>
+    <div class="pd-hero">
+      ${heroEl(p,'position:absolute;inset:0;width:100%;height:100%;object-fit:cover')}
+      <div class="pd-hov"></div>
+      <div class="pd-hc">
+        <div class="pd-ey">${p.type}</div>
+        <h1 class="pd-title">${p.name}</h1>
+      </div>
+    </div>
+    <div class="pd-meta">
+      <div class="pd-mc"><div class="pd-ml">// Year</div><div class="pd-mv">${p.year}</div></div>
+      <div class="pd-mc"><div class="pd-ml">// Type</div><div class="pd-mv">${p.type}</div></div>
+      <div class="pd-mc"><div class="pd-ml">// Location</div><div class="pd-mv">${p.loc}</div></div>
+      <div class="pd-mc"><div class="pd-ml">// Tools</div><div class="pd-mv" style="font-size:0.8rem;color:var(--ink-3)">${p.tools.join(' · ')}</div></div>
+    </div>
+    <div class="pd-body">
+      <div class="pd-sb">
+        <div class="pd-sb-s"><h4>Brief</h4><p>${p.brief}</p></div>
+        <div class="pd-sb-s"><h4>Description</h4>${p.desc.split('\n\n').map(t=>`<span class="bt">${t}</span>`).join('<br><br>')}</div>
+        <div class="pd-sb-s"><h4>Environmental Data</h4><div class="pd-env">${envG}</div></div>
+        <div class="pd-sb-s"><h4>Tools Used</h4><div class="pd-tools">${p.tools.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>
+      </div>
+      <div class="pd-gal"><div class="pd-gg">${gallery}</div></div>
+    </div>
+    <div class="pd-next" onclick="openProj('${p.nextId}')">
+      <div class="pd-next-bg ph-dk" style="position:absolute;inset:0"></div>
+      <div class="pd-next-c">
+        <div class="pd-nl">// Next project</div>
+        <div class="pd-nn">${p.nextName}</div>
+        <div class="pd-na">↓</div>
+        <div class="pd-nm">${p.nextMetric}</div>
+      </div>
+    </div>`;
+  wd.classList.add('on');
+  window.scrollTo(0,0);
+  renderPDFCovers();
+}
+
+// Skills animation
+function animSkills(){
+  setTimeout(()=>{
+    document.querySelectorAll('.sk-bf').forEach(el=>{el.style.width=el.dataset.w});
+  },250);
+}
+
+// Contact form — Formspree
+// TODO: Replace YOUR_FORM_ID with your Formspree form ID (e.g. xpwzabcd)
+const FORMSPREE_ID = 'YOUR_FORM_ID';
+function handleForm(e){
+  e.preventDefault();
+  const btn = e.target.querySelector('.fsub');
+  btn.textContent = '// Transmitting...';
+  btn.disabled = true;
+  fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+    method: 'POST',
+    body: new FormData(e.target),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(r => {
+    if(r.ok){
+      e.target.style.display='none';
+      document.getElementById('fok').style.display='block';
+    } else {
+      btn.textContent = '// Error — try emailing directly';
+      btn.disabled = false;
+    }
+  })
+  .catch(()=>{
+    btn.textContent = '// Error — try emailing directly';
+    btn.disabled = false;
+  });
+}
+
+// Fade in observer
+function initFI(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('vis');obs.unobserve(en.target)}});
+  },{threshold:0.08});
+  document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+}
+initFI();
+
+// Lightbox
+function lbClose(){document.getElementById('lb').classList.remove('on')}
+function lbNav(d){lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;document.getElementById('lb-img').src=lbImgs[lbIdx]}
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)lbClose()});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lb').classList.contains('on'))return;
+  if(e.key==='Escape')lbClose();
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
+});
+
+// Mobile menu
+function mobMenu(){
+  const ex=document.getElementById('mob-menu');
+  if(ex){ex.remove();return}
+  const m=document.createElement('div');
+  m.id='mob-menu';
+  m.style.cssText='position:fixed;top:var(--nav-h);left:0;right:0;z-index:199;background:var(--ink);display:flex;flex-direction:column;border-bottom:0.5px solid rgba(255,255,255,0.08)';
+  ['Home','Work','About','Contact'].forEach(pg=>{
+    const b=document.createElement('button');
+    b.textContent=pg;
+    b.style.cssText='padding:1rem 2rem;background:none;border:none;border-bottom:0.5px solid rgba(255,255,255,0.06);font-family:"DM Mono",monospace;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-align:left;cursor:pointer';
+    b.onclick=()=>go(pg.toLowerCase());
+    m.appendChild(b);
+  });
+  document.body.appendChild(m);
+}
+
+// Init work list
+renderList(PROJS);
+
+// ── BUILD PSS SLIDES FROM PROJS ──────────────────────────────
+function buildPSSSlides(){
+  const track=document.getElementById('pss-track');
+  if(!track) return;
+  track.innerHTML=PROJS.map((p,i)=>{
+    const img=isPDF(p.hero)
+      ?`<img class="pdf-cover pss-slide-bg" data-pdf="${p.hero}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`
+      :`<img class="pss-slide-bg" src="${p.hero}" alt="${p.name}" loading="${i===0?'eager':'lazy'}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`;
+    return `<div class="pss-slide${i===0?' active':''}" data-id="${p.id}">${img}<div class="pss-slide-meta">${p.name}<br>${p.type} · ${p.year}</div></div>`;
+  }).join('');
+  renderPDFCovers();
+}
+buildPSSSlides();
+
+// ── PROJECT SIDE SCROLL ───────────────────────────────────────
+(function(){
+  const PSS_PROJS=PROJS.map(p=>({
+    id:p.id, eyebrow:p.type+' · '+p.year, name:p.name,
+    desc:p.brief,
+    tags:[{t:p.type,g:true},{t:p.year},...p.tools.slice(0,2).map(t=>({t}))]
+  }));
+
+  const track   = document.getElementById('pss-track');
+  const wrap    = document.getElementById('pss-wrap');
+  const dotsEl  = document.getElementById('pss-dots');
+  const eyebrow = document.getElementById('pss-eyebrow');
+  const nameEl  = document.getElementById('pss-name');
+  const descEl  = document.getElementById('pss-desc');
+  const tagsEl  = document.getElementById('pss-tags');
+  const ctaEl   = document.getElementById('pss-cta');
+  const counter = document.getElementById('pss-counter');
+  if(!track) return;
+
+  let cur=0, dragging=false, dragX=0, didDrag=false;
+  const TOTAL=PSS_PROJS.length;
+
+  // Build dots
+  PSS_PROJS.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='pss-dot'+(i===0?' on':'');
+    d.onclick=()=>pssGo(i);
+    dotsEl.appendChild(d);
+  });
+
+  function pssGo(n){
+    cur=(n+TOTAL)%TOTAL;
+    const p=PSS_PROJS[cur];
+    // Move track
+    track.style.transform=`translateX(-${cur*(100/(TOTAL))*TOTAL/(TOTAL)}%)`;
+    // Simpler: each slide is 100% of wrap width
+    const slideW=wrap.getBoundingClientRect().width||window.innerWidth-340;
+    track.style.transform=`translateX(-${cur*slideW}px)`;
+    // Active slide class
+    track.querySelectorAll('.pss-slide').forEach((s,i)=>s.classList.toggle('active',i===cur));
+    // Dots
+    dotsEl.querySelectorAll('.pss-dot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+    // Panel update with fade
+    const panel=document.getElementById('pss-panel');
+    panel.style.opacity='0';
+    setTimeout(()=>{
+      eyebrow.textContent=p.eyebrow;
+      nameEl.textContent=p.name;
+      descEl.textContent=p.desc;
+      tagsEl.innerHTML=p.tags.map(t=>`<span class="pss-tag${t.g?' pss-tag-g':''}">${t.t}</span>`).join('');
+      ctaEl.onclick=()=>openProj(p.id);
+      counter.textContent=`${String(cur+1).padStart(2,'0')} / ${String(TOTAL).padStart(2,'0')}`;
+      panel.style.opacity='1';
+      panel.style.transition='opacity 0.35s';
+    },180);
+  }
+
+  window.pssNav=function(d){pssGo(cur+d)};
+
+  // Keyboard
+  document.addEventListener('keydown',e=>{
+    if(document.getElementById('page-home').classList.contains('on')){
+      if(e.key==='ArrowLeft') pssGo(cur-1);
+      if(e.key==='ArrowRight') pssGo(cur+1);
+    }
+  });
+
+  // Drag / swipe
+  wrap.addEventListener('mousedown',e=>{
+    dragging=true;didDrag=false;dragX=e.clientX;
+    track.style.transition='none';
+    e.preventDefault();
+  },{passive:false});
+  window.addEventListener('mousemove',e=>{
+    if(!dragging) return;
+    const dx=e.clientX-dragX;
+    if(Math.abs(dx)>6) didDrag=true;
+    const slideW=wrap.getBoundingClientRect().width;
+    track.style.transform=`translateX(${-cur*slideW+dx}px)`;
+  });
+  window.addEventListener('mouseup',e=>{
+    if(!dragging) return; dragging=false;
+    track.style.transition='';
+    const dx=e.clientX-dragX;
+    if(didDrag){
+      if(dx<-80) pssGo(cur+1);
+      else if(dx>80) pssGo(cur-1);
+      else pssGo(cur);
+    }
+  });
+  wrap.addEventListener('touchstart',e=>{
+    dragging=true;didDrag=false;dragX=e.touches[0].clientX;
+    track.style.transition='none';
+  },{passive:true});
+  wrap.addEventListener('touchmove',e=>{
+    if(!dragging) return;
+    const dx=e.touches[0].clientX-dragX;
+    if(Math.abs(dx)>6) didDrag=true;
+    const slideW=wrap.getBoundingClientRect().width;
+    track.style.transform=`translateX(${-cur*slideW+dx}px)`;
+  },{passive:true});
+  wrap.addEventListener('touchend',e=>{
+    if(!dragging) return; dragging=false;
+    track.style.transition='';
+    const dx=e.changedTouches[0].clientX-dragX;
+    if(didDrag){
+      if(dx<-80) pssGo(cur+1);
+      else if(dx>80) pssGo(cur-1);
+      else pssGo(cur);
+    }
+  });
+
+  // Click on slide = open project (only if not dragged)
+  track.querySelectorAll('.pss-slide').forEach((s,i)=>{
+    s.addEventListener('click',()=>{if(!didDrag) openProj(PSS_PROJS[i].id)});
+    s.style.cursor='pointer';
+  });
+
+  // Init
+  pssGo(0);
+  // Recalculate on resize
+  window.addEventListener('resize',()=>pssGo(cur));
+})();
+
+// ── GALLERY SLIDESHOW ─────────────────────────────────────────
+(function(){
+  const TOTAL = 9;
+  const DUR   = 4200; // ms per slide
+  let cur     = 0;
+  let timer   = null;
+  let prog    = null;
+  let dragging= false;
+  let dragX   = 0;
+  let isDragging = false;
+
+  const track  = document.getElementById('hg-track');
+  const wrap   = document.getElementById('hg-wrap');
+  const dots   = document.getElementById('hg-dots');
+  const counter= document.getElementById('hg-counter');
+  const progEl = document.getElementById('hg-prog');
+
+  if(!track) return;
+
+  // Build dots
+  for(let i=0;i<TOTAL;i++){
+    const d=document.createElement('div');
+    d.className='hg-dot'+(i===0?' on':'');
+    d.onclick=()=>hgGo(i);
+    dots.appendChild(d);
+  }
+
+  function hgGo(n,skipAnim){
+    cur=(n+TOTAL)%TOTAL;
+    // Move track
+    track.style.transition = skipAnim ? 'none' : 'transform 0.65s var(--ease-out,cubic-bezier(0.16,1,0.3,1))';
+    track.style.transform = `translateX(-${cur*100}%)`;
+    // Update dots
+    dots.querySelectorAll('.hg-dot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+    // Counter
+    counter.textContent = `${String(cur+1).padStart(2,'0')} / ${String(TOTAL).padStart(2,'0')}`;
+    // Progress bar
+    restartProgress();
+  }
+
+  function restartProgress(){
+    clearTimeout(timer);
+    progEl.style.animation='none';
+    progEl.classList.remove('running');
+    // Force reflow
+    void progEl.offsetWidth;
+    progEl.style.setProperty('--hg-dur', DUR+'ms');
+    progEl.classList.add('running');
+    timer = setTimeout(()=>hgGo(cur+1), DUR);
+  }
+
+  window.hgNav = function(d){ hgGo(cur+d); };
+
+  // Drag / swipe
+  function dragStart(x){
+    dragging=true; isDragging=false; dragX=x;
+    track.style.transition='none';
+    clearTimeout(timer);
+    progEl.classList.remove('running');
+  }
+  function dragMove(x){
+    if(!dragging) return;
+    const dx=x-dragX;
+    if(Math.abs(dx)>5) isDragging=true;
+    track.style.transform=`translateX(calc(-${cur*100}% + ${dx}px))`;
+  }
+  function dragEnd(x){
+    if(!dragging) return; dragging=false;
+    const dx=x-dragX;
+    if(isDragging){
+      if(dx<-60) hgGo(cur+1);
+      else if(dx>60) hgGo(cur-1);
+      else hgGo(cur);
+    }
+  }
+
+  wrap.addEventListener('mousedown',e=>{dragStart(e.clientX); e.preventDefault()});
+  window.addEventListener('mousemove',e=>{if(dragging) dragMove(e.clientX)});
+  window.addEventListener('mouseup',e=>{dragEnd(e.clientX)});
+  wrap.addEventListener('touchstart',e=>{dragStart(e.touches[0].clientX)},{passive:true});
+  wrap.addEventListener('touchmove',e=>{dragMove(e.touches[0].clientX)},{passive:true});
+  wrap.addEventListener('touchend',e=>{dragEnd(e.changedTouches[0].clientX)});
+
+  // Keyboard when gallery visible
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft') hgGo(cur-1);
+    if(e.key==='ArrowRight') hgGo(cur+1);
+  });
+
+  // Init
+  hgGo(0);
+})();
+</script>
+
+<!-- ══════════════════════════════════
+     PASSWORD MODAL
+══════════════════════════════════ -->
+<div class="pw-overlay" id="pw-overlay" onclick="if(event.target===this)closePW()">
+  <div class="pw-box" id="pw-box">
+    <button class="pw-close" onclick="closePW()">// Close ✕</button>
+    <span class="pw-lock-icon">// Protected document</span>
+    <h3 class="pw-title" id="pw-title">Enter password<br>to access</h3>
+    <p class="pw-sub" id="pw-sub">Restricted — authorised access only</p>
+    <div class="pw-input-wrap" style="position:relative">
+      <input class="pw-input" id="pw-input" type="password"
+             placeholder="Password"
+             onkeydown="if(event.key==='Enter')submitPW()"
+             style="padding-right:3.5rem">
+      <button id="pw-toggle"
+        onclick="(function(){var i=el('pw-input'),b=el('pw-toggle');i.type=i.type==='password'?'text':'password';b.textContent=i.type==='password'?'show':'hide';})()"
+        style="position:absolute;right:0.85rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-4);padding:0;line-height:1">show</button>
+    </div>
+    <button class="pw-submit" onclick="submitPW()">// Unlock document →</button>
+    <p class="pw-error" id="pw-error">Incorrect password — try again</p>
+  </div>
+</div>
+
+</body>
+</html>
