@@ -1,0 +1,3 @@
+# Cloudflare Pages SPA fallback — mirrors render.yaml's rewrite rule
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+/*  /index.html  200

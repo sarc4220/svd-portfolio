@@ -2408,7 +2408,7 @@ function renderPDFCovers(){
     img.dataset.rendered='1';
     const url=img.dataset.pdf;
     ensurePDFJS(()=>{
-      pdfjsLib.getDocument(url).promise
+      pdfjsLib.getDocument({url:url,disableAutoFetch:true,disableStream:false}).promise
         .then(pdf=>pdf.getPage(1))
         .then(page=>{
           const scale=2;
@@ -2427,8 +2427,8 @@ function renderPDFCovers(){
 // Returns an img/placeholder element for a project hero
 function heroEl(p,style){
   if(!p.hero) return `<div class="pd-hbg ph ph-dk" data-label="${p.name}" style="position:absolute;inset:0"></div>`;
-  if(isPDF(p.hero)) return `<img class="pdf-cover" data-pdf="${p.hero}" alt="${p.name}" style="${style}">`;
-  return `<img src="${p.hero}" alt="${p.name}" style="${style}">`;
+  if(isPDF(p.hero)) return `<img class="pdf-cover" data-pdf="${p.hero}" alt="${p.name}" loading="lazy" style="${style}">`;
+  return `<img src="${p.hero}" alt="${p.name}" loading="lazy" style="${style}">`;
 }
 
 // Navigation
@@ -2561,7 +2561,7 @@ function fw(cat,btn){
     'thesis':          'reports/Plants_Structural_Material_System_Dissertation_templated.pdf',
     'strategic-report':'reports/Back_to_Basics_Strategic_Report_templated.pdf',
     'technical-report':'reports/Back_to_Basics_Technical_Report_templated.pdf',
-    'shadow-report':   'reports/BSC%20AED_DS%203A_Sebastian%20Dawber%20moudle2%20(1).pdf',
+    'shadow-report':   'reports/shadow-report-compressed.pdf',
     'competition':     'reports/Back%20to%20basics%20off%20gird%20compettion_compressed.pdf',
     'portfolio':       'reports/Technical_Environmental_Diary_templated.pdf',
     'b2b-analysis':    'reports/B2B_analysis_templated.pdf',
@@ -2579,7 +2579,7 @@ function fw(cat,btn){
     // Use ensurePDFJS + getDocument(url) — lets PDF.js handle the network request
     // directly, which is more reliable than manual fetch → arrayBuffer
     ensurePDFJS(function(){
-      window.pdfjsLib.getDocument(url).promise
+      window.pdfjsLib.getDocument({url:url,disableAutoFetch:true,disableStream:false}).promise
         .then(function(pdf){
           pdfDoc=pdf;
           totalPages=pdf.numPages;
@@ -3183,7 +3183,7 @@ function buildPSSSlides(){
   if(!track) return;
   track.innerHTML=PROJS.map((p,i)=>{
     const img=isPDF(p.hero)
-      ?`<img class="pdf-cover pss-slide-bg" data-pdf="${p.hero}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`
+      ?`<img class="pdf-cover pss-slide-bg" data-pdf="${p.hero}" alt="${p.name}" loading="${i===0?'eager':'lazy'}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`
       :`<img class="pss-slide-bg" src="${p.hero}" alt="${p.name}" loading="${i===0?'eager':'lazy'}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`;
     return `<div class="pss-slide${i===0?' active':''}" data-id="${p.id}">${img}<div class="pss-slide-meta">${p.name}<br>${p.type} · ${p.year}</div></div>`;
   }).join('');

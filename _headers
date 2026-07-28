@@ -1,0 +1,32 @@
+# Cloudflare Pages headers — mirrors render.yaml's caching/content-type rules
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Cover images — cache forever (filenames are versioned)
+/image/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# PDF covers in image/ — serve inline so pdf.js can render them
+/image/*.pdf
+  Content-Type: application/pdf
+  Content-Disposition: inline
+
+# Reports (flipbook PDFs) — serve inline, cache 1 day
+/reports/*
+  Content-Type: application/pdf
+  Content-Disposition: inline
+  Cache-Control: public, max-age=86400
+
+# Project assets — cache 1 day
+/Projects/*
+  Cache-Control: public, max-age=86400
+
+# Project PDFs — serve inline so the viewer can open them
+/Projects/*.pdf
+  Content-Type: application/pdf
+  Content-Disposition: inline
