@@ -7,9 +7,9 @@
 /
   Cache-Control: public, max-age=0, must-revalidate
 
-# Cover images — cache forever (filenames are versioned)
+# Cover images — cache 1 day (files get replaced in place, so never 'immutable')
 /image/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400
 
 # PDF covers in image/ — serve inline so pdf.js can render them
 /image/*.pdf
