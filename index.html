@@ -2415,7 +2415,9 @@ function renderPDFCovers(){
       pdfjsLib.getDocument({url:url,disableAutoFetch:true,disableStream:false}).promise
         .then(pdf=>pdf.getPage(1))
         .then(page=>{
-          const scale=2;
+          // cap canvas at 2000px on the long edge so large PDF pages can't exhaust phone memory
+          const base=page.getViewport({scale:1});
+          const scale=Math.min(2,2000/Math.max(base.width,base.height));
           const vp=page.getViewport({scale});
           const cvs=document.createElement('canvas');
           cvs.width=vp.width;cvs.height=vp.height;
